@@ -4,13 +4,19 @@ body,
   height: 100%;
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   --glow-light-rgb: 64, 156, 255;
   --glow-dark-rgb: 16, 55, 138;
   --accent: rgba(20, 156, 234, 1);
   --page-max: 1320px;
-  --page-pad: clamp(24px, 6vw, 180px);
+  --page-pad: clamp(16px, 4vw, 96px);
   --spinner-glow-light: rgba(51, 120, 194, 0.664);
   --spinner-glow-dark: rgb(22, 7, 59);
   background:
@@ -59,6 +65,12 @@ body {
   gap: 12px;
 }
 
+@media (max-width: 1100px) {
+  .sideSocial {
+    display: none;
+  }
+}
+
 .sideSocial .hero__iconBtn {
   width: 34px;
   height: 34px;
@@ -91,6 +103,8 @@ body {
 
 .hero__inner {
   width: 100%;
+  max-width: var(--page-max);
+  margin: 0 auto;
   padding: 0 var(--page-pad);
   display: flex;
   align-items: center;
@@ -140,6 +154,34 @@ body {
 /* Let Skills cards use a wider container on desktop */
 #skills .aboutSection__inner {
   max-width: 1320px;
+}
+
+.skillCard__titleRow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.skillCard__titleIcon {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  color: rgba(var(--glow-light-rgb), 0.95);
+  border: 1px solid rgba(var(--glow-light-rgb), 0.22);
+  background:
+    radial-gradient(90px 60px at 30% 25%, rgba(var(--glow-light-rgb), 0.22), transparent 58%),
+    rgba(3, 2, 10, 0.35);
+  box-shadow:
+    inset 0 0 16px rgba(var(--glow-light-rgb), 0.16),
+    0 0 18px rgba(var(--glow-light-rgb), 0.06);
+}
+
+.skillCard__titleIcon svg {
+  width: 20px;
+  height: 20px;
 }
 
 .skillCard__title {
@@ -242,7 +284,7 @@ body {
 
 .hero__left {
   max-width: 720px;
-  transform: translate(120px, -70px);
+  transform: none;
 }
 
 .hero__title {
@@ -250,6 +292,7 @@ body {
   color: #fff;
   font: 700 64px/1.06 system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   letter-spacing: -0.02em;
+  font-size: clamp(44px, 5vw, 64px);
 }
 
 .hero__subtitle {
@@ -257,6 +300,7 @@ body {
   color: var(--accent);
   font: 700 32px/1.1 system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   letter-spacing: -0.01em;
+  font-size: clamp(24px, 2.8vw, 32px);
 }
 
 .hero__subtitleWrap {
@@ -282,6 +326,7 @@ body {
   color: rgba(255, 255, 255, 0.72);
   font: 500 20px/1.75 system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   max-width: 620px;
+  font-size: clamp(16px, 1.6vw, 20px);
 }
 
 .hero__cta {
@@ -406,11 +451,11 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  transform: translate(-160px, -60px);
+  transform: none;
 }
 
 .spinner {
-  --spinner-size: 440px;
+  --spinner-size: clamp(260px, 32vw, 440px);
   position: relative;
   width: var(--spinner-size);
   height: var(--spinner-size);
@@ -525,6 +570,15 @@ body {
     transform: none;
   }
 
+  .simple-nav__links {
+    gap: 12px;
+  }
+
+  .simple-nav__links a {
+    font-size: 13px;
+    padding: 7px 8px;
+  }
+
 }
 
 .simple-nav {
@@ -564,7 +618,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 28px;
+  gap: clamp(14px, 3vw, 28px);
   flex-wrap: wrap;
   padding: 10px var(--page-pad);
 }
@@ -580,9 +634,12 @@ body {
 
 .simple-nav__links {
   display: flex;
-  gap: 22px;
+  gap: clamp(12px, 2.2vw, 20px);
   flex-wrap: wrap;
   margin-right: 0;
+  flex: 1 1 auto;
+  justify-content: flex-end;
+  min-width: 0;
 }
 
 .simple-nav__links a {
