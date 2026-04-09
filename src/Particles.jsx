@@ -88,10 +88,10 @@ const fragment = /* glsl */ `
 const Particles = ({
   particleCount = 4000,
   particleSpread = 15,
-  speed = 0.2,
+  speed = 0.1,
   particleColors = ["#ffffff"],
   alphaParticles = true,
-  particleBaseSize = 100,
+  particleBaseSize = 60,
   sizeRandomness = 1,
   cameraDistance = 50,
   disableRotation = false,
@@ -188,9 +188,6 @@ const Particles = ({
       elapsed += delta * speed;
 
       program.uniforms.uTime.value = elapsed * 0.001;
-
-      particles.position.x = 0;
-      particles.position.y = 0;
 
       if (!disableRotation) {
         particles.rotation.x = Math.sin(elapsed * 0.0002) * 0.1;
