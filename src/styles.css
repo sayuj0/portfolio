@@ -15,8 +15,9 @@ body {
   --glow-light-rgb: 64, 156, 255;
   --glow-dark-rgb: 16, 55, 138;
   --accent: rgba(20, 156, 234, 1);
-  --page-max: 1320px;
-  --page-pad: clamp(16px, 4vw, 96px);
+  --page-max: 1520px;
+  --page-pad: clamp(16px, 3vw, 64px);
+  --side-rail-reserve: 0px;
   --spinner-glow-light: rgba(51, 120, 194, 0.664);
   --spinner-glow-dark: rgb(22, 7, 59);
   background:
@@ -105,11 +106,20 @@ body {
   width: 100%;
   max-width: var(--page-max);
   margin: 0 auto;
-  padding: 0 var(--page-pad);
+  padding-left: var(--page-pad);
+  padding-right: calc(var(--page-pad) + var(--side-rail-reserve));
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
   gap: clamp(28px, 6vw, 96px);
+}
+
+/* When the fixed right social rail is visible, reserve space so hero content doesn't touch it */
+@media (min-width: 1101px) {
+  body {
+    --side-rail-reserve: 84px;
+  }
 }
 
 .aboutSection {
@@ -137,6 +147,8 @@ body {
 }
 
 .skillCard {
+  position: relative;
+  overflow: hidden;
   border-radius: 18px;
   border: 1px solid rgba(255, 255, 255, 0.10);
   background:
@@ -149,11 +161,66 @@ body {
     0 0 30px rgba(var(--glow-light-rgb), 0.06);
   padding: 26px 28px;
   width: 100%;
+  transition:
+    transform 180ms ease,
+    border-color 220ms ease,
+    box-shadow 320ms ease,
+    filter 320ms ease;
+  will-change: transform, box-shadow;
 }
 
-/* Let Skills cards use a wider container on desktop */
+.skillCard::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 320ms ease, transform 520ms ease;
+  transform: scale(0.98);
+  background:
+    radial-gradient(
+      500px 260px at 18% 12%,
+      rgba(var(--glow-light-rgb), 0.14),
+      transparent 60%
+    );
+}
+
+.skillCard:hover,
+.skillCard:focus-within {
+  transform: translateY(-3px);
+  border-color: rgba(var(--glow-light-rgb), 0.28);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.04),
+    0 0 0 1px rgba(var(--glow-light-rgb), 0.18),
+    0 0 40px rgba(var(--glow-light-rgb), 0.14);
+  filter: saturate(1.08);
+}
+
+.skillCard:hover::before,
+.skillCard:focus-within::before {
+  opacity: 1;
+  transform: scale(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skillCard {
+    transition: border-color 220ms ease, box-shadow 320ms ease, filter 320ms ease;
+  }
+
+  .skillCard:hover,
+  .skillCard:focus-within {
+    transform: none;
+  }
+
+  .skillCard::before {
+    transition: opacity 320ms ease;
+    transform: none;
+  }
+}
+
+/* Skills uses the same page container width as the navbar */
 #skills .aboutSection__inner {
-  max-width: 1320px;
+  max-width: var(--page-max);
 }
 
 .skillCard__titleRow {
@@ -284,6 +351,7 @@ body {
 
 .hero__left {
   max-width: 720px;
+  flex: 1 1 560px;
   transform: none;
 }
 
@@ -451,6 +519,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-left: auto;
   transform: none;
 }
 
