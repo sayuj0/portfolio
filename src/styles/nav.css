@@ -1,0 +1,99 @@
+.simple-nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  padding: 10px 0;
+  display: flex;
+  justify-content: center;
+  background: rgba(3, 2, 10, 0.35);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.simple-nav::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background: linear-gradient(
+    to right,
+    rgba(37, 12, 94, 0),
+    rgba(37, 12, 94, 0.92) 18%,
+    rgba(37, 12, 94, 0.92) 82%,
+    rgba(37, 12, 94, 0)
+  );
+  box-shadow:
+    0 0 18px rgba(37, 12, 94, 0.55),
+    0 0 30px rgba(var(--glow-light-rgb), 0.12);
+}
+
+.simple-nav__inner {
+  width: 100%;
+  max-width: var(--page-max);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(14px, 3vw, 28px);
+  flex-wrap: wrap;
+  padding: 10px var(--page-pad);
+}
+
+.simple-nav__brand {
+  color: #fff;
+  text-decoration: none;
+  font: 700 18px/1.1 system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  letter-spacing: -0.01em;
+  opacity: 0.95;
+  transition: opacity 0.2s ease, filter 0.5s ease, text-shadow 0.5s ease;
+}
+
+.simple-nav__links {
+  display: flex;
+  gap: clamp(12px, 2.2vw, 20px);
+  flex-wrap: wrap;
+  margin-right: 0;
+  flex: 1 1 auto;
+  justify-content: flex-end;
+  min-width: 0;
+}
+
+.simple-nav__links a {
+  color: #fff;
+  text-decoration: none;
+  font: 500 14px/1 system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  opacity: 0.85;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 10px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  transition: opacity 0.2s ease, filter 0.5s ease, text-shadow 0.5s ease;
+}
+
+.simple-nav__brand:hover,
+.simple-nav__links a:hover {
+  opacity: 1;
+}
+
+.simple-nav__brand:hover {
+  text-shadow:
+    0 0 12px rgba(var(--glow-light-rgb), 0.75),
+    0 0 32px rgba(var(--glow-light-rgb), 0.55),
+    0 0 72px rgba(var(--glow-light-rgb), 0.40);
+  filter:
+    drop-shadow(0 0 16px rgba(var(--glow-light-rgb), 0.45))
+    drop-shadow(0 0 44px rgba(var(--glow-light-rgb), 0.32));
+}
+
+.simple-nav__links a:hover {
+  text-shadow:
+    0 0 12px rgba(var(--glow-light-rgb), 0.75),
+    0 0 32px rgba(var(--glow-light-rgb), 0.55),
+    0 0 72px rgba(var(--glow-light-rgb), 0.40);
+  filter:
+    drop-shadow(0 0 16px rgba(var(--glow-light-rgb), 0.80))
+    drop-shadow(0 0 44px rgba(var(--glow-light-rgb), 0.67));
+}

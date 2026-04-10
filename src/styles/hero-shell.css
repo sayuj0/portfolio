@@ -1,0 +1,86 @@
+.hero {
+  position: relative;
+  z-index: 1;
+  height: calc(100vh - 92px);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero__inner {
+  position: relative;
+  z-index: 1;
+}
+
+.sideSocial {
+  position: fixed;
+  top: 250px;
+  right: 28px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+@media (max-width: 1100px) {
+  .sideSocial {
+    display: none;
+  }
+}
+
+.sideSocial .hero__iconBtn {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+}
+
+.sideSocial .hero__iconBtn svg {
+  width: 16px;
+  height: 16px;
+}
+
+.sideSocial__line {
+  width: 2px;
+  height: 120px;
+  border-radius: 999px;
+  background: linear-gradient(
+    to bottom,
+    rgba(var(--glow-light-rgb), 0),
+    var(--accent),
+    rgba(var(--glow-light-rgb), 0)
+  );
+  box-shadow:
+    0 0 10px rgba(var(--glow-light-rgb), 0.20),
+    0 0 26px rgba(var(--glow-light-rgb), 0.10);
+}
+
+.sideSocial__line--top {
+  height: 120px;
+}
+
+.hero__inner {
+  width: 100%;
+  max-width: var(--page-max);
+  margin: 0 auto;
+  padding-left: var(--page-pad);
+  padding-right: calc(var(--page-pad) + var(--side-rail-reserve));
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: clamp(28px, 6vw, 96px);
+}
+
+/* When the fixed right social rail is visible, reserve space so hero content doesn't touch it */
+@media (min-width: 1101px) {
+  body {
+    --side-rail-reserve: 84px;
+  }
+}

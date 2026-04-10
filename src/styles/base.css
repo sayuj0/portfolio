@@ -1,0 +1,36 @@
+html,
+body,
+#root {
+  height: 100%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  --glow-light-rgb: 64, 156, 255;
+  --glow-dark-rgb: 16, 55, 138;
+  --accent: rgba(20, 156, 234, 1);
+  --page-max: 1520px;
+  --page-pad: clamp(16px, 3vw, 64px);
+  --side-rail-reserve: 0px;
+  --spinner-glow-light: rgba(51, 120, 194, 0.664);
+  --spinner-glow-dark: rgb(22, 7, 59);
+  background:
+    radial-gradient(1200px 700px at 20% 20%, rgba(37, 12, 94, 0.11), transparent 62%),
+    radial-gradient(900px 600px at 80% 30%, rgba(37, 12, 94, 0.11), transparent 58%),
+    radial-gradient(1000px 700px at 50% 90%, rgba(37, 12, 94, 0.11), transparent 62%),
+    #03020a;
+  background-attachment: fixed;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.appShell {
+  min-height: 100vh;
+  position: relative;
+}
