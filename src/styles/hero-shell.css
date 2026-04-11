@@ -78,7 +78,6 @@
   gap: clamp(28px, 6vw, 96px);
 }
 
-/* When the fixed right social rail is visible, reserve space so hero content doesn't touch it */
 @media (min-width: 1101px) {
   body {
     --side-rail-reserve: 84px;
