@@ -12,6 +12,13 @@
   font-size: 40px;
 }
 
+#experience .contentSection__title {
+  text-align: center;
+  width: auto;
+  margin-left: 0;
+  margin-right: 0;
+}
+
 .experienceSection__inner {
   display: grid;
   grid-template-columns: 48px 1fr;
