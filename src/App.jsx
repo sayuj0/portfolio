@@ -87,6 +87,7 @@ function App() {
 
   return (
     <div className="appShell">
+      <div className="appBackground" aria-hidden="true" />
       <SimpleNav
         onHomeClick={handleHomeClick}
         onSkillsClick={handleSkillsClick}
