@@ -41,7 +41,21 @@ function CertificationsSection() {
       certificateUrl:
         "https://www.linkedin.com/learning/certificates/417575a522ea921943bfcd0bca249733f56dba2a7d1c8ff155230f4f759d69f4",
     },
-    ...Array.from({ length: 3 }, (_, index) => ({
+    {
+      title: "Career Essentials in GitHub Professional",
+      issuer: "GitHub",
+      date: "Apr 2026",
+      logoImageSrc: "/images/githublogo.png",
+      logoImageAlt: "GitHub",
+      contentAlign: "center",
+      logoText: "",
+      logoAriaLabel: "",
+      certificateImageSrc: "/images/github.jpg",
+      certificateImageAlt: "GitHub - Career Essentials in GitHub Professional certificate",
+      certificateUrl:
+        "https://www.linkedin.com/learning/certificates/8bf8cc02d830cd5bdece7a02e5aa2bc7f3468a8ba28e947a906a4637953ef714?trk=share_certificate",
+    },
+    ...Array.from({ length: 2 }, (_, index) => ({
       title: "New Certification",
       issuer: "Issuer",
       date: "Date",
