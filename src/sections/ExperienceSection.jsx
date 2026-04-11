@@ -103,13 +103,43 @@ function ExperienceSection() {
                   <div className="experienceCard__row">
                     <h3 className="experienceCard__role">{experience.role}</h3>
                     <div className="experienceCard__meta" aria-label="Role dates and location">
-                      <span className="skillChip experienceBadge">{experience.dates}</span>
+                      <span className="skillChip experienceBadge experiencePill">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                          <path
+                            d="M7 3v2M17 3v2M4 7h16M6 5h12a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                        {experience.dates}
+                      </span>
                     </div>
                   </div>
                   <div className="experienceCard__row experienceCard__row--muted">
                     <p className="experienceCard__org">{experience.organization}</p>
                     <div className="experienceCard__meta" aria-label="Location">
-                      <span className="skillChip experienceBadge">{experience.location}</span>
+                      <span className="skillChip experienceBadge experiencePill">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                          <path
+                            d="M12 22s7-6 7-13a7 7 0 1 0-14 0c0 7 7 13 7 13z"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinejoin="round"
+                          />
+                          <path
+                            d="M12 12a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                        {experience.location}
+                      </span>
                     </div>
                   </div>
                 </header>
