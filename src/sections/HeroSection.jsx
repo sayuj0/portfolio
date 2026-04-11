@@ -1,6 +1,6 @@
 import Particles from "../Particles";
 
-function HeroSection() {
+function HeroSection({ onProjectsClick }) {
   return (
     <section className="hero">
       <div className="hero__bg" aria-hidden="true">
@@ -20,7 +20,11 @@ function HeroSection() {
           </p>
 
           <div className="hero__cta">
-            <a className="hero__btn hero__btn--compact" href="#projects">
+            <a
+              className="hero__btn hero__btn--compact"
+              href="/projects"
+              onClick={onProjectsClick}
+            >
               View My Work
               <svg className="hero__btnIcon" viewBox="0 0 24 24" aria-hidden="true">
                 <path

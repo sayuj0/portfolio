@@ -1,6 +1,8 @@
 import SimpleNav from "./components/SimpleNav";
 import SideSocial from "./components/SideSocial";
 
+import { useEffect } from "react";
+
 import CertificationsSection from "./sections/CertificationsSection";
 import ContactSection from "./sections/ContactSection";
 import ExperienceSection from "./sections/ExperienceSection";
@@ -11,15 +13,14 @@ import SkillsSection from "./sections/SkillsSection";
 import { skills } from "./data/skills";
 
 function App() {
-  const handleHomeClick = (event) => {
-    event.preventDefault();
-    window.history.pushState({}, "", "/");
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
+  const shouldHandleClick = (event) =>
+    event.button === 0 &&
+    !event.metaKey &&
+    !event.ctrlKey &&
+    !event.shiftKey &&
+    !event.altKey;
 
-  const handleSectionClick = (sectionId) => (event) => {
-    event.preventDefault();
-
+  const scrollToSection = (sectionId) => {
     const nav = document.querySelector(".simple-nav");
     const navHeight = nav ? nav.getBoundingClientRect().height : 0;
 
@@ -28,34 +29,60 @@ function App() {
     if (!target) return;
 
     const targetTop = target.getBoundingClientRect().top + window.scrollY;
-
-    window.history.pushState({}, "", `#${sectionId}`);
     window.scrollTo({ top: Math.max(0, targetTop - navHeight - 16), behavior: "smooth" });
   };
 
-  const handleSkillsClick = (event) => {
-    event.preventDefault();
+  const syncScrollWithLocation = () => {
+    const pathname = window.location.pathname || "/";
+    const hash = window.location.hash || "";
 
-    const target = document.getElementById("skills");
-    if (!target) return;
+    const validSections = new Set([
+      "skills",
+      "experience",
+      "projects",
+      "certifications",
+      "contact",
+    ]);
 
-    const targetTop = target.getBoundingClientRect().top + window.scrollY;
-    const hero = document.querySelector(".hero");
-    const nav = document.querySelector(".simple-nav");
-
-    let heroBottom = targetTop;
-    if (hero) {
-      const heroTop = hero.getBoundingClientRect().top + window.scrollY;
-      heroBottom = heroTop + hero.getBoundingClientRect().height;
+    let sectionId = "";
+    if (hash.startsWith("#")) {
+      sectionId = hash.slice(1);
+      if (validSections.has(sectionId)) {
+        window.history.replaceState({}, "", `/${sectionId}`);
+      }
+    } else if (pathname !== "/") {
+      sectionId = pathname.replace(/^\//, "");
     }
 
-    const navHeight = nav ? nav.getBoundingClientRect().height : 0;
+    if (validSections.has(sectionId)) {
+      scrollToSection(sectionId);
+    }
+  };
 
-    window.history.pushState({}, "", "#skills");
-    window.scrollTo({
-      top: Math.max(targetTop - navHeight - 16, heroBottom - 50),
-      behavior: "smooth",
-    });
+  useEffect(() => {
+    const onPopState = () => syncScrollWithLocation();
+    window.addEventListener("popstate", onPopState);
+    syncScrollWithLocation();
+    return () => window.removeEventListener("popstate", onPopState);
+  }, []);
+
+  const handleHomeClick = (event) => {
+    if (!shouldHandleClick(event)) return;
+    event.preventDefault();
+    window.history.pushState({}, "", "/");
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const handleSectionClick = (sectionId) => (event) => {
+    if (!shouldHandleClick(event)) return;
+    event.preventDefault();
+
+    window.history.pushState({}, "", `/${sectionId}`);
+    scrollToSection(sectionId);
+  };
+
+  const handleSkillsClick = (event) => {
+    handleSectionClick("skills")(event);
   };
 
   return (
@@ -69,7 +96,7 @@ function App() {
       <SideSocial />
 
       <main>
-        <HeroSection />
+        <HeroSection onProjectsClick={handleSectionClick("projects")} />
         <SkillsSection skills={skills} />
         <ExperienceSection />
         <ProjectsSection />

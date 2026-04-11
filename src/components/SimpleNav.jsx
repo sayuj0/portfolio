@@ -10,22 +10,22 @@ function SimpleNav({ onHomeClick, onSkillsClick, onSectionClick }) {
           <a href="/" onClick={onHomeClick}>
             Home
           </a>
-          <a href="#skills" onClick={onSkillsClick}>
+          <a href="/skills" onClick={onSkillsClick}>
             Skills
           </a>
-          <a href="#experience" onClick={onSectionClick("experience")}>
+          <a href="/experience" onClick={onSectionClick("experience")}>
             Experience
           </a>
-          <a href="#projects" onClick={onSectionClick("projects")}>
+          <a href="/projects" onClick={onSectionClick("projects")}>
             Projects
           </a>
           <a
-            href="#certifications"
+            href="/certifications"
             onClick={onSectionClick("certifications")}
           >
             Certifications
           </a>
-          <a href="#contact" onClick={onSectionClick("contact")}>
+          <a href="/contact" onClick={onSectionClick("contact")}>
             Contact
           </a>
         </nav>
