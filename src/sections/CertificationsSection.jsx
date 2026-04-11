@@ -2,7 +2,7 @@ function CertificationsSection() {
   const certifications = [
     {
       title: "Fundamentals of Deep Learning",
-      issuer: "NVIDIA Deep Learning Institute",
+      issuer: "NVIDIA",
       date: "Dec 2025",
       logoImageSrc: "/images/nvidialogo.png",
       logoImageAlt: "NVIDIA",
@@ -13,7 +13,21 @@ function CertificationsSection() {
       certificateImageAlt: "NVIDIA - Fundamentals of Deep Learning certificate",
       certificateUrl: "https://learn.nvidia.com/certificates?id=0m_HibBASWaii8Ygk_Qsjw",
     },
-    ...Array.from({ length: 5 }, (_, index) => ({
+    {
+      title: "Docker Foundations Professional",
+      issuer: "Docker",
+      date: "Oct 2025",
+      logoImageSrc: "/images/dockerlogo.png",
+      logoImageAlt: "Docker",
+      contentAlign: "center",
+      logoText: "",
+      logoAriaLabel: "",
+      certificateImageSrc: "/images/docker.jpg",
+      certificateImageAlt: "Docker - Docker Foundations Professional certificate",
+      certificateUrl:
+        "https://www.linkedin.com/learning/certificates/4550bfbcb246e8b4a6a643065f8c47af5533fd43891041f6a17467f254dc9cd4",
+    },
+    ...Array.from({ length: 4 }, (_, index) => ({
       title: "New Certification",
       issuer: "Issuer",
       date: "Date",
@@ -42,6 +56,7 @@ function CertificationsSection() {
                 <div className="certCard__thumb" aria-label="Certificate image">
                   {certification.certificateImageSrc ? (
                     <img
+                      className="certCard__thumbImage"
                       src={certification.certificateImageSrc}
                       alt={certification.certificateImageAlt || certification.title}
                       loading="lazy"
