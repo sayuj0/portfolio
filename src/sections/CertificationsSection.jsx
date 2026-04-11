@@ -27,7 +27,21 @@ function CertificationsSection() {
       certificateUrl:
         "https://www.linkedin.com/learning/certificates/4550bfbcb246e8b4a6a643065f8c47af5533fd43891041f6a17467f254dc9cd4",
     },
-    ...Array.from({ length: 4 }, (_, index) => ({
+    {
+      title: "Ubuntu Linux Professional",
+      issuer: "Canonical",
+      date: "Oct 2025",
+      logoImageSrc: "/images/ubuntulogo.png",
+      logoImageAlt: "Ubuntu",
+      contentAlign: "center",
+      logoText: "",
+      logoAriaLabel: "",
+      certificateImageSrc: "/images/canonical.jpg",
+      certificateImageAlt: "Canonical - Ubuntu Linux Professional certificate",
+      certificateUrl:
+        "https://www.linkedin.com/learning/certificates/417575a522ea921943bfcd0bca249733f56dba2a7d1c8ff155230f4f759d69f4",
+    },
+    ...Array.from({ length: 3 }, (_, index) => ({
       title: "New Certification",
       issuer: "Issuer",
       date: "Date",
