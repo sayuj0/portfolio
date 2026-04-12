@@ -24,7 +24,7 @@ const featuredProjects = [
     liveDemoUrl: "",
   },
   {
-    title: "Uni Careers",
+    title: "MajorLink",
     description:
       "A platform for students to find major-related jobs and track applications, with admin tools to manage postings and application progress.",
     tags: ["Python", "Flask", "SQLAlchemy", "Docker", "+7"],
@@ -42,7 +42,7 @@ const featuredProjects = [
       "Gunicorn",
     ],
     about:
-      "Uni Careers is a major-based, role-driven platform that helps students find and apply to relevant jobs while giving administrators tools to manage majors, postings, and application activity. Students can create accounts, choose or update their major, browse and search major-linked opportunities, submit applications, and track status updates throughout the process. Administrators can manage majors and job postings, review applications, and update statuses and notes to support the full workflow from posting to decision. The platform was built with Flask, Jinja2, Flask-Login, and SQLAlchemy, using SQLite for local development and PostgreSQL through Docker Compose for production-style deployment.",
+      "Applying to jobs can be frustrating, especially when students miss relevant opportunities because they are not searching the exact title, even though they are qualified through their major. MajorLink solves this by letting students set their major and discover job postings connected directly to their field of study. The platform helps students find and apply to relevant jobs while giving administrators tools to manage majors, postings, and application activity. Students can create accounts, update their major, browse and search major-linked opportunities, submit applications, and track status updates throughout the process. Administrators can manage majors and job postings, review applications, and update statuses and notes to support the full workflow from posting to decision. The platform was built with Flask, Jinja2, Flask-Login, and SQLAlchemy, using SQLite for local development and PostgreSQL through Docker Compose for production-style deployment.",
     cardHighlights: [
       "Built a major-based job posting and application platform with separate Admin and Student experiences",
       "Developed 22 Flask routes across 19 UI pages to support the full application workflow",

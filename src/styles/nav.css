@@ -97,3 +97,14 @@
     drop-shadow(0 0 16px rgba(var(--glow-light-rgb), 0.80))
     drop-shadow(0 0 44px rgba(var(--glow-light-rgb), 0.67));
 }
+
+.simple-nav__links a.is-active {
+  opacity: 1;
+  text-shadow:
+    0 0 12px rgba(var(--glow-light-rgb), 0.75),
+    0 0 32px rgba(var(--glow-light-rgb), 0.55),
+    0 0 72px rgba(var(--glow-light-rgb), 0.40);
+  filter:
+    drop-shadow(0 0 16px rgba(var(--glow-light-rgb), 0.80))
+    drop-shadow(0 0 44px rgba(var(--glow-light-rgb), 0.67));
+}

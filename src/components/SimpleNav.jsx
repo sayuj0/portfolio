@@ -1,4 +1,6 @@
-function SimpleNav({ onHomeClick, onSkillsClick, onSectionClick }) {
+function SimpleNav({ onHomeClick, onSkillsClick, onSectionClick, activeSection }) {
+  const isActive = (id) => activeSection === id;
+
   return (
     <header className="simple-nav">
       <div className="simple-nav__inner">
@@ -7,25 +9,52 @@ function SimpleNav({ onHomeClick, onSkillsClick, onSectionClick }) {
         </a>
 
         <nav className="simple-nav__links">
-          <a href="/" onClick={onHomeClick}>
+          <a
+            href="/"
+            onClick={onHomeClick}
+            className={isActive("home") ? "is-active" : undefined}
+            aria-current={isActive("home") ? "page" : undefined}
+          >
             Home
           </a>
-          <a href="/skills" onClick={onSkillsClick}>
+          <a
+            href="/skills"
+            onClick={onSkillsClick}
+            className={isActive("skills") ? "is-active" : undefined}
+            aria-current={isActive("skills") ? "page" : undefined}
+          >
             Skills
           </a>
-          <a href="/experience" onClick={onSectionClick("experience")}>
+          <a
+            href="/experience"
+            onClick={onSectionClick("experience")}
+            className={isActive("experience") ? "is-active" : undefined}
+            aria-current={isActive("experience") ? "page" : undefined}
+          >
             Experience
           </a>
-          <a href="/projects" onClick={onSectionClick("projects")}>
+          <a
+            href="/projects"
+            onClick={onSectionClick("projects")}
+            className={isActive("projects") ? "is-active" : undefined}
+            aria-current={isActive("projects") ? "page" : undefined}
+          >
             Projects
           </a>
           <a
             href="/certifications"
             onClick={onSectionClick("certifications")}
+            className={isActive("certifications") ? "is-active" : undefined}
+            aria-current={isActive("certifications") ? "page" : undefined}
           >
             Certifications
           </a>
-          <a href="/contact" onClick={onSectionClick("contact")}>
+          <a
+            href="/contact"
+            onClick={onSectionClick("contact")}
+            className={isActive("contact") ? "is-active" : undefined}
+            aria-current={isActive("contact") ? "page" : undefined}
+          >
             Contact
           </a>
         </nav>

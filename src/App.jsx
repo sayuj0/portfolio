@@ -1,7 +1,7 @@
 import SimpleNav from "./components/SimpleNav";
 import SideSocial from "./components/SideSocial";
 
-import { useEffect } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 import CertificationsSection from "./sections/CertificationsSection";
 import ContactSection from "./sections/ContactSection";
@@ -13,12 +13,39 @@ import SkillsSection from "./sections/SkillsSection";
 import { skills } from "./data/skills";
 
 function App() {
+  const sectionOrder = useMemo(
+    () => ["skills", "experience", "projects", "certifications", "contact"],
+    []
+  );
+
+  const [activeSection, setActiveSection] = useState("home");
+
   const shouldHandleClick = (event) =>
     event.button === 0 &&
     !event.metaKey &&
     !event.ctrlKey &&
     !event.shiftKey &&
     !event.altKey;
+
+  const getNavHeight = () => {
+    const nav = document.querySelector(".simple-nav");
+    return nav ? nav.getBoundingClientRect().height : 0;
+  };
+
+  const updateActiveSectionFromScroll = () => {
+    const navHeight = getNavHeight();
+    const probeY = window.scrollY + navHeight + 260;
+
+    let current = "home";
+    for (const sectionId of sectionOrder) {
+      const el = document.getElementById(sectionId);
+      if (!el) continue;
+      const top = el.getBoundingClientRect().top + window.scrollY;
+      if (probeY >= top) current = sectionId;
+    }
+
+    setActiveSection((prev) => (prev === current ? prev : current));
+  };
 
   const scrollToSection = (sectionId) => {
     const nav = document.querySelector(".simple-nav");
@@ -55,7 +82,10 @@ function App() {
     }
 
     if (validSections.has(sectionId)) {
+      setActiveSection(sectionId);
       scrollToSection(sectionId);
+    } else {
+      setActiveSection("home");
     }
   };
 
@@ -66,10 +96,33 @@ function App() {
     return () => window.removeEventListener("popstate", onPopState);
   }, []);
 
+  useEffect(() => {
+    let rafId = 0;
+
+    const onScroll = () => {
+      if (rafId) return;
+      rafId = window.requestAnimationFrame(() => {
+        rafId = 0;
+        updateActiveSectionFromScroll();
+      });
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    updateActiveSectionFromScroll();
+
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+      if (rafId) window.cancelAnimationFrame(rafId);
+    };
+  }, [sectionOrder]);
+
   const handleHomeClick = (event) => {
     if (!shouldHandleClick(event)) return;
     event.preventDefault();
     window.history.pushState({}, "", "/");
+    setActiveSection("home");
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
@@ -78,6 +131,7 @@ function App() {
     event.preventDefault();
 
     window.history.pushState({}, "", `/${sectionId}`);
+    setActiveSection(sectionId);
     scrollToSection(sectionId);
   };
 
@@ -92,6 +146,7 @@ function App() {
         onHomeClick={handleHomeClick}
         onSkillsClick={handleSkillsClick}
         onSectionClick={handleSectionClick}
+        activeSection={activeSection}
       />
 
       <SideSocial />
