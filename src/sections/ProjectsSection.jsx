@@ -21,7 +21,6 @@ const featuredProjects = [
     imageAlt: "",
     detailsUrl: "",
     githubUrl: "https://github.com/sayuj0?tab=repositories",
-    liveDemoUrl: "",
   },
   {
     title: "MajorLink",
@@ -57,16 +56,15 @@ const featuredProjects = [
     imageAlt: "Project Two screenshot",
     detailsUrl: "",
     githubUrl: "https://github.com/sayuj0/MajorLink",
-    liveDemoUrl: "",
   },
   {
-    title: "Wandering",
+    title: "Snake Persistence Task",
     description:
-      "A short, high-impact summary of what this project does and why it matters.",
-    tags: ["Python", "Data", "Automation"],
-    techStack: ["Python", "Data", "Automation"],
+      "A responsive travel website that showcases shared memories, favorite places, and future destinations through interactive galleries and a polished, story-driven design.",
+    tags: ["HTML5", "CSS3", "JavaScript", "GitHub Pages", "+1"],
+    techStack: ["HTML5", "CSS3", "JavaScript", "GitHub Pages", "Cloudflare"],
     about:
-      "A short paragraph describing the problem, your approach, and what you built.",
+      "A responsive travel website that showcases shared memories, favorite places, and future destinations through interactive galleries and a polished, story-driven design.",
     cardHighlights: [
       "Key accomplishment or measurable impact",
       "Notable technical detail or feature",
@@ -75,14 +73,13 @@ const featuredProjects = [
       "Key accomplishment or measurable impact",
       "Notable technical detail or feature",
     ],
-    imageSrc: "/images/wandering.png",
+    imageSrc: "",
     imageAlt: "Wandering screenshot",
     detailsUrl: "",
     githubUrl: "https://github.com/sayuj0?tab=repositories",
-    liveDemoUrl: "",
   },
   {
-    title: "Project Four",
+    title: "Developer Portfolio",
     description:
       "A short, high-impact summary of what this project does and why it matters.",
     tags: ["TypeScript", "Frontend", "UX"],
@@ -101,29 +98,30 @@ const featuredProjects = [
     imageAlt: "",
     detailsUrl: "",
     githubUrl: "https://github.com/sayuj0?tab=repositories",
-    liveDemoUrl: "",
   },
   {
-    title: "Project Five",
+    title: "Wandering",
     description:
-      "A short, high-impact summary of what this project does and why it matters.",
-    tags: ["Node.js", "Backend", "Auth"],
-    techStack: ["Node.js", "Backend", "Auth"],
+      "A personal travel website that captures favorite memories, meals, and future destinations through a responsive, story-driven design.",
+    tags: ["HTML5", "CSS3", "JavaScript", "GitHub Pages", "+1"],
+    techStack: ["HTML5", "CSS3", "JavaScript", "GitHub Pages", "Cloudflare"],
     about:
-      "A short paragraph describing the problem, your approach, and what you built.",
+      "Wandering is my personal travel website, built as a digital scrapbook for favorite memories, meals, and future destinations. It features sections like Home, About, Destinations, Food, Future, and Contact, combining storytelling with responsive design and interactive galleries. Built with HTML5, CSS3, and JavaScript, the site was deployed through GitHub Pages with a custom domain.",
     cardHighlights: [
-      "Key accomplishment or measurable impact",
-      "Notable technical detail or feature",
+      "Designed and deployed a responsive personal travel website with interactive galleries and Swiper-based image carousels",
+      "Developed the site with HTML, CSS, and JavaScript, using custom properties, media queries, mobile navigation, and carousel functionality",
     ],
     achievements: [
-      "Key accomplishment or measurable impact",
-      "Notable technical detail or feature",
+      "Designed and deployed a responsive personal travel website with interactive galleries and Swiper-based image carousels",
+      "Developed the site with HTML, CSS, and JavaScript, using custom properties, media queries, mobile navigation, and carousel functionality",
+      "Optimized the website for mobile, tablet, and desktop devices and deployed it through GitHub Pages with a custom domain",
+      "Built a functional contact form and integrated smooth client-side behavior for a more polished user experience",
     ],
-    imageSrc: "",
-    imageAlt: "",
+    imageSrc: "/images/wandering.png",
+    imageAlt: "Wandering screenshot",
     detailsUrl: "",
-    githubUrl: "https://github.com/sayuj0?tab=repositories",
-    liveDemoUrl: "",
+    githubUrl: "https://github.com/sayuj0/travel-website",
+    liveDemoUrl: "https://wanderingtravel.org/",
   },
   {
     title: "Project Six",
@@ -145,7 +143,6 @@ const featuredProjects = [
     imageAlt: "",
     detailsUrl: "",
     githubUrl: "https://github.com/sayuj0?tab=repositories",
-    liveDemoUrl: "",
   },
 ];
 
@@ -251,7 +248,7 @@ function ProjectsSection() {
                       </svg>
                     </button>
 
-                    {(index === 2 || index === 4) && (
+                    {index === 4 && (
                       <a
                         className="hero__btn hero__btn--compact"
                         href={project.liveDemoUrl || "#"}
