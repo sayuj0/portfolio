@@ -46,8 +46,6 @@
   background:
     radial-gradient(900px 240px at 15% 0%, rgba(37, 12, 94, 0.11), transparent 70%),
     rgba(3, 2, 10, 0.55);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
   box-shadow:
     inset 0 0 0 1px rgba(255, 255, 255, 0.03),
     0 0 30px rgba(var(--glow-light-rgb), 0.06);

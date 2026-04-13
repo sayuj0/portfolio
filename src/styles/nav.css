@@ -6,8 +6,6 @@
   display: flex;
   justify-content: center;
   background: rgba(3, 2, 10, 0.35);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
 }
 
 .simple-nav::after {
