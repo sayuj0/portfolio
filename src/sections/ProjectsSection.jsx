@@ -56,7 +56,7 @@ const featuredProjects = [
     imageSrc: "/images/unicareers.png",
     imageAlt: "Project Two screenshot",
     detailsUrl: "",
-    githubUrl: "https://github.com/sayuj0/Uni-Careers",
+    githubUrl: "https://github.com/sayuj0/MajorLink",
     liveDemoUrl: "",
   },
   {
