@@ -7,8 +7,6 @@ function CertificationsSection() {
       logoImageSrc: "/images/nvidialogo.png",
       logoImageAlt: "NVIDIA",
       contentAlign: "center",
-      logoText: "",
-      logoAriaLabel: "",
       certificateImageSrc: "/images/nvidia.jpg",
       certificateImageAlt: "NVIDIA - Fundamentals of Deep Learning certificate",
       certificateUrl: "https://learn.nvidia.com/certificates?id=0m_HibBASWaii8Ygk_Qsjw",
@@ -20,8 +18,6 @@ function CertificationsSection() {
       logoImageSrc: "/images/dockerlogo.png",
       logoImageAlt: "Docker",
       contentAlign: "center",
-      logoText: "",
-      logoAriaLabel: "",
       certificateImageSrc: "/images/docker.jpg",
       certificateImageAlt: "Docker - Docker Foundations Professional certificate",
       certificateUrl:
@@ -34,8 +30,6 @@ function CertificationsSection() {
       logoImageSrc: "/images/ubuntulogo.png",
       logoImageAlt: "Ubuntu",
       contentAlign: "center",
-      logoText: "",
-      logoAriaLabel: "",
       certificateImageSrc: "/images/canonical.jpg",
       certificateImageAlt: "Canonical - Ubuntu Linux Professional certificate",
       certificateUrl:
@@ -48,19 +42,28 @@ function CertificationsSection() {
       logoImageSrc: "/images/githublogo.png",
       logoImageAlt: "GitHub",
       contentAlign: "center",
-      logoText: "",
-      logoAriaLabel: "",
       certificateImageSrc: "/images/github.jpg",
       certificateImageAlt: "GitHub - Career Essentials in GitHub Professional certificate",
       certificateUrl:
         "https://www.linkedin.com/learning/certificates/8bf8cc02d830cd5bdece7a02e5aa2bc7f3468a8ba28e947a906a4637953ef714?trk=share_certificate",
     },
-    ...Array.from({ length: 2 }, (_, index) => ({
+    {
+      title: "C++ Programming Professional",
+      issuer: "OpenEDG",
+      date: "Apr 2026",
+      logoImageSrc: "/images/clogo.png",
+      logoImageAlt: "OpenEDG",
+      contentAlign: "center",
+      certificateImageSrc: "/images/cplus.jpg",
+      certificateImageAlt: "OpenEDG - C++ Programming Professional certificate",
+      certificateUrl:
+        "https://www.linkedin.com/learning/certificates/d1cb2bb3bb27978271cd616fc917786fdf0be1c2ff86f497e6cdd7ff81076424?trk=share_certificate",
+    },
+
+    ...Array.from({ length: 1 }, (_, index) => ({
       title: "New Certification",
       issuer: "Issuer",
       date: "Date",
-      logoText: "LOGO",
-      logoAriaLabel: `Placeholder logo ${index + 1}`,
       certificateImageSrc: "",
       certificateImageAlt: "",
       certificateUrl: "",
