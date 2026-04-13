@@ -34,7 +34,6 @@
 	padding: 22px 22px;
 	text-align: left;
 	transition: none;
-	will-change: transform, box-shadow;
 }
 
 .certCard::before {

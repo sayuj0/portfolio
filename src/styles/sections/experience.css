@@ -51,7 +51,6 @@
     0 0 30px rgba(var(--glow-light-rgb), 0.06);
   padding: 22px 24px;
   transition: none;
-  will-change: transform, box-shadow;
 }
 
 .experienceCard::before {

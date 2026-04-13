@@ -51,7 +51,6 @@
 	min-height: 540px;
 	--project-media-h: 280px;
 	transition: none;
-	will-change: transform, box-shadow;
 }
 
 .projectCard:hover,

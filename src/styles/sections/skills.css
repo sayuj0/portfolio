@@ -38,7 +38,6 @@
   padding: 26px 28px;
   width: 100%;
   transition: none;
-  will-change: transform, box-shadow;
 }
 
 .skillCard::before {
