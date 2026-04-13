@@ -5,7 +5,7 @@ function CertificationsSection() {
       issuer: "NVIDIA",
       date: "Dec 2025",
       logoImageSrc: "/images/nvidialogo.png",
-      logoImageAlt: "NVIDIA",
+      logoImageAlt: "Deep Learning",
       contentAlign: "center",
       certificateImageSrc: "/images/nvidia.jpg",
       certificateImageAlt: "NVIDIA - Fundamentals of Deep Learning certificate",
@@ -52,23 +52,25 @@ function CertificationsSection() {
       issuer: "OpenEDG",
       date: "Apr 2026",
       logoImageSrc: "/images/clogo.png",
-      logoImageAlt: "OpenEDG",
+      logoImageAlt: "C++",
       contentAlign: "center",
       certificateImageSrc: "/images/cplus.jpg",
       certificateImageAlt: "OpenEDG - C++ Programming Professional certificate",
       certificateUrl:
         "https://www.linkedin.com/learning/certificates/d1cb2bb3bb27978271cd616fc917786fdf0be1c2ff86f497e6cdd7ff81076424?trk=share_certificate",
     },
-
-    ...Array.from({ length: 1 }, (_, index) => ({
-      title: "New Certification",
-      issuer: "Issuer",
-      date: "Date",
+    {
+      title: "Placeholder Certification",
+      issuer: "placerholder",
+      date: "Apr 2026",
+      logoImageSrc: "/images/python.png",
+      logoImageAlt: "Python",
+      contentAlign: "center",
       certificateImageSrc: "",
       certificateImageAlt: "",
-      certificateUrl: "",
-      placeholder: true,
-    })),
+      certificateUrl:
+        "",
+    },
   ];
 
   return (
