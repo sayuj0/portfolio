@@ -1,9 +1,10 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Renderer, Camera, Geometry, Program, Mesh } from "ogl";
 
 import "./Particles.css";
 
 const defaultColors = ["#ffffff", "#ffffff", "#ffffff"];
+const VIEWPORT_MARGIN_PX = 400;
 
 const hexToRgb = (hex) => {
   hex = hex.replace(/^#/, "");
@@ -97,12 +98,67 @@ const Particles = ({
   disableRotation = false,
   pixelRatio = 1,
   className,
+  active = true,
 }) => {
   const containerRef = useRef(null);
+  const [isNearViewport, setIsNearViewport] = useState(false);
+  const [isTabVisible, setIsTabVisible] = useState(true);
 
   useEffect(() => {
     const container = containerRef.current;
     if (!container) return;
+
+    const margin = VIEWPORT_MARGIN_PX;
+    const checkNearViewport = () => {
+      const rect = container.getBoundingClientRect();
+      const viewportHeight = window.innerHeight || document.documentElement.clientHeight || 0;
+      const near =
+        rect.bottom >= -margin &&
+        rect.top <= viewportHeight + margin;
+      setIsNearViewport(near);
+    };
+
+    checkNearViewport();
+
+    if (!("IntersectionObserver" in window)) {
+      window.addEventListener("scroll", checkNearViewport, { passive: true });
+      window.addEventListener("resize", checkNearViewport);
+      return () => {
+        window.removeEventListener("scroll", checkNearViewport);
+        window.removeEventListener("resize", checkNearViewport);
+      };
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsNearViewport(entry.isIntersecting);
+      },
+      {
+        root: null,
+        rootMargin: `${margin}px 0px ${margin}px 0px`,
+        threshold: 0,
+      },
+    );
+
+    observer.observe(container);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const onVisibilityChange = () => {
+      setIsTabVisible(document.visibilityState === "visible");
+    };
+
+    onVisibilityChange();
+    document.addEventListener("visibilitychange", onVisibilityChange);
+    return () => document.removeEventListener("visibilitychange", onVisibilityChange);
+  }, []);
+
+  const shouldRender = active && isNearViewport && isTabVisible;
+
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container || !shouldRender) return;
 
     const renderer = new Renderer({
       dpr: pixelRatio,
@@ -177,7 +233,7 @@ const Particles = ({
 
     const particles = new Mesh(gl, { mode: gl.POINTS, geometry, program });
 
-    let animationFrameId;
+    let animationFrameId = 0;
     let lastTime = performance.now();
     let elapsed = 0;
 
@@ -202,7 +258,7 @@ const Particles = ({
 
     return () => {
       window.removeEventListener("resize", resize);
-      cancelAnimationFrame(animationFrameId);
+      if (animationFrameId) cancelAnimationFrame(animationFrameId);
       if (container.contains(gl.canvas)) {
         container.removeChild(gl.canvas);
       }
@@ -218,6 +274,8 @@ const Particles = ({
     disableRotation,
     pixelRatio,
     particleColors,
+    active,
+    shouldRender,
   ]);
 
   return (

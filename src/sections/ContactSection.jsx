@@ -29,7 +29,7 @@ function ContactSection() {
   return (
     <section id="contact" className="contentSection contactSection">
       <div className="contactSection__bg" aria-hidden="true">
-        <Particles particleCount={100} />
+        <Particles particleCount={200} />
       </div>
 
       <div className="contentSection__inner contactSection__inner">
