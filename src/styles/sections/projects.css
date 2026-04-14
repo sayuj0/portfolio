@@ -268,17 +268,15 @@
 	color: rgba(255, 255, 255, 0.86);
 }
 
-/* Project details modal */
-
 .projectModalOverlay {
 	position: fixed;
 	inset: 0;
-	z-index: 2000;
+	z-index: 9999;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	padding: calc(22px + var(--modal-safe-top, 0px)) 22px 22px;
-	background: rgba(3, 2, 10, 0.72);
+	background: rgba(3, 2, 10, 0.90);
 }
 
 .projectModal {

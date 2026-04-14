@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
+import { createPortal } from "react-dom";
 
 const featuredProjects = [
   {
@@ -316,110 +317,112 @@ function ProjectsSection() {
           ))}
         </div>
 
-        {activeProject && (
-          <div
-            className="projectModalOverlay"
-            style={{ "--modal-safe-top": `${modalSafeTop}px` }}
-            role="presentation"
-            onMouseDown={(event) => {
-              if (event.target === event.currentTarget) closeModal();
-            }}
-          >
+        {activeProject &&
+          createPortal(
             <div
-              className="projectModal"
-              role="dialog"
-              aria-modal="true"
-              aria-labelledby="project-modal-title"
-              aria-describedby="project-modal-desc"
+              className="projectModalOverlay"
+              style={{ "--modal-safe-top": `${modalSafeTop}px` }}
+              role="presentation"
+              onMouseDown={(event) => {
+                if (event.target === event.currentTarget) closeModal();
+              }}
             >
-              <div className="projectModal__header">
-                <h3 className="projectModal__title" id="project-modal-title">
-                  {activeProject.title}
-                </h3>
-                <button
-                  type="button"
-                  className="projectModal__close hero__iconBtn"
-                  onClick={closeModal}
-                  aria-label="Close"
-                  title="Close"
-                >
-                  <svg viewBox="0 0 24 24" aria-hidden="true">
-                    <path
-                      d="M6 6l12 12M18 6 6 18"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </button>
-              </div>
+              <div
+                className="projectModal"
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="project-modal-title"
+                aria-describedby="project-modal-desc"
+              >
+                <div className="projectModal__header">
+                  <h3 className="projectModal__title" id="project-modal-title">
+                    {activeProject.title}
+                  </h3>
+                  <button
+                    type="button"
+                    className="projectModal__close hero__iconBtn"
+                    onClick={closeModal}
+                    aria-label="Close"
+                    title="Close"
+                  >
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                      <path
+                        d="M6 6l12 12M18 6 6 18"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </button>
+                </div>
 
-              <p className="projectModal__description" id="project-modal-desc">
-                {activeProject.description}
-              </p>
+                <p className="projectModal__description" id="project-modal-desc">
+                  {activeProject.description}
+                </p>
 
-              <div className="projectModal__section">
-                <h4 className="projectModal__sectionTitle">Tech Stack</h4>
-                <div className="projectModal__tech" aria-label="Tech stack">
-                  {(activeProject.techStack || [])
-                    .filter(Boolean)
-                    .map((item) => (
-                      <span className="projectTag" key={item}>
-                        {item}
+                <div className="projectModal__section">
+                  <h4 className="projectModal__sectionTitle">Tech Stack</h4>
+                  <div className="projectModal__tech" aria-label="Tech stack">
+                    {(activeProject.techStack || [])
+                      .filter(Boolean)
+                      .map((item) => (
+                        <span className="projectTag" key={item}>
+                          {item}
+                        </span>
+                      ))}
+
+                    {(!activeProject.techStack ||
+                      activeProject.techStack.filter(Boolean).length === 0) && (
+                      <span className="projectModal__muted">
+                        Add your full tech stack here.
                       </span>
-                    ))}
+                    )}
+                  </div>
+                </div>
 
-                  {(!activeProject.techStack ||
-                    activeProject.techStack.filter(Boolean).length === 0) && (
-                    <span className="projectModal__muted">
-                      Add your full tech stack here.
-                    </span>
-                  )}
+                <div className="projectModal__section">
+                  <h4 className="projectModal__sectionTitle">About This Project</h4>
+                  <p className="projectModal__body">
+                    {activeProject.about || activeProject.description}
+                  </p>
+                </div>
+
+                <div className="projectModal__section">
+                  <h4 className="projectModal__sectionTitle">Key Achievements</h4>
+                  <ul className="projectModal__list">
+                    {(activeProject.achievements || activeProject.cardHighlights || []).map(
+                      (item, i) => (
+                        <li key={`${activeProject.title}-achievement-${i}`}>{item}</li>
+                      )
+                    )}
+                  </ul>
+                </div>
+
+                <div className="projectModal__footer">
+                  <a
+                    className="hero__btn hero__btn--compact projectModal__codeBtn"
+                    href={activeProject.githubUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label="GitHub repository"
+                    title="GitHub"
+                  >
+                    <svg
+                      className="projectModal__codeIcon"
+                      viewBox="0 0 24 24"
+                      aria-hidden="true"
+                    >
+                      <path d="M12 2c-5.52 0-10 4.6-10 10.26 0 4.52 2.87 8.35 6.84 9.7.5.1.68-.22.68-.49 0-.24-.01-.88-.01-1.72-2.78.62-3.37-1.39-3.37-1.39-.46-1.2-1.12-1.52-1.12-1.52-.91-.64.07-.63.07-.63 1.01.07 1.54 1.06 1.54 1.06.9 1.58 2.36 1.12 2.94.86.09-.67.35-1.12.63-1.38-2.22-.26-4.56-1.14-4.56-5.09 0-1.13.39-2.05 1.03-2.77-.1-.26-.45-1.32.1-2.75 0 0 .84-.28 2.75 1.06A9.3 9.3 0 0 1 12 6.84c.85 0 1.71.12 2.51.35 1.9-1.34 2.74-1.06 2.74-1.06.55 1.43.2 2.49.1 2.75.64.72 1.03 1.64 1.03 2.77 0 3.96-2.34 4.83-4.58 5.08.36.32.68.95.68 1.92 0 1.39-.01 2.5-.01 2.84 0 .27.18.6.69.49A10.12 10.12 0 0 0 22 12.26C22 6.6 17.52 2 12 2z" />
+                    </svg>
+                    View Code
+                  </a>
                 </div>
               </div>
-
-              <div className="projectModal__section">
-                <h4 className="projectModal__sectionTitle">About This Project</h4>
-                <p className="projectModal__body">
-                  {activeProject.about || activeProject.description}
-                </p>
-              </div>
-
-              <div className="projectModal__section">
-                <h4 className="projectModal__sectionTitle">Key Achievements</h4>
-                <ul className="projectModal__list">
-                  {(activeProject.achievements || activeProject.cardHighlights || []).map(
-                    (item, i) => (
-                    <li key={`${activeProject.title}-achievement-${i}`}>{item}</li>
-                    )
-                  )}
-                </ul>
-              </div>
-
-              <div className="projectModal__footer">
-                <a
-                  className="hero__btn hero__btn--compact projectModal__codeBtn"
-                  href={activeProject.githubUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label="GitHub repository"
-                  title="GitHub"
-                >
-                  <svg
-                    className="projectModal__codeIcon"
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                  >
-                    <path d="M12 2c-5.52 0-10 4.6-10 10.26 0 4.52 2.87 8.35 6.84 9.7.5.1.68-.22.68-.49 0-.24-.01-.88-.01-1.72-2.78.62-3.37-1.39-3.37-1.39-.46-1.2-1.12-1.52-1.12-1.52-.91-.64.07-.63.07-.63 1.01.07 1.54 1.06 1.54 1.06.9 1.58 2.36 1.12 2.94.86.09-.67.35-1.12.63-1.38-2.22-.26-4.56-1.14-4.56-5.09 0-1.13.39-2.05 1.03-2.77-.1-.26-.45-1.32.1-2.75 0 0 .84-.28 2.75 1.06A9.3 9.3 0 0 1 12 6.84c.85 0 1.71.12 2.51.35 1.9-1.34 2.74-1.06 2.74-1.06.55 1.43.2 2.49.1 2.75.64.72 1.03 1.64 1.03 2.77 0 3.96-2.34 4.83-4.58 5.08.36.32.68.95.68 1.92 0 1.39-.01 2.5-.01 2.84 0 .27.18.6.69.49A10.12 10.12 0 0 0 22 12.26C22 6.6 17.52 2 12 2z" />
-                  </svg>
-                  View Code
-                </a>
-              </div>
-            </div>
-          </div>
-        )}
+            </div>,
+            document.body
+          )}
 
         <div className="projectsFooter">
           <a
