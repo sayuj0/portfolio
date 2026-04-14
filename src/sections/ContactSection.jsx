@@ -1,3 +1,5 @@
+import Particles from "../Particles";
+
 function ContactSection() {
   const contactLinks = [
     {
@@ -26,6 +28,10 @@ function ContactSection() {
 
   return (
     <section id="contact" className="contentSection contactSection">
+      <div className="contactSection__bg" aria-hidden="true">
+        <Particles particleCount={100} />
+      </div>
+
       <div className="contentSection__inner contactSection__inner">
         <h2 className="contentSection__title contactSection__title">Get In Touch</h2>
         <p className="contentSection__text contactSection__lead">

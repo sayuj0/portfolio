@@ -1,6 +1,20 @@
 /* Contact section styles */
 
+.contactSection {
+  position: relative;
+  overflow: hidden;
+}
+
+.contactSection__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
 #contact .contactSection__inner {
+  position: relative;
+  z-index: 1;
   padding: 80px var(--page-pad) 160px;
   max-width: var(--page-max);
   text-align: left;
