@@ -81,22 +81,24 @@ const featuredProjects = [
   {
     title: "Developer Portfolio",
     description:
-      "A short, high-impact summary of what this project does and why it matters.",
-    tags: ["TypeScript", "Frontend", "UX"],
-    techStack: ["TypeScript", "Frontend", "UX"],
+      "A responsive single-page developer portfolio built with React and Vite to showcase projects, skills, experience, certifications, and contact information.",
+    tags: ["React", "JavaScript", "Vite", "Node", "+3"],
+    techStack: ["React", "JavaScript", "Vite", "Node", "CSS", "HTML", "WebGL"],
     about:
-      "A short paragraph describing the problem, your approach, and what you built.",
+      "This project is a responsive single-page developer portfolio built to showcase technical skills, experience, featured projects, and certifications in a clean and modern format. It was created with React and Vite using a component-based structure that keeps each section organized and easy to maintain. The site includes custom styling, responsive layouts, scroll-aware navigation, project detail modals, and an animated background to create a more polished and interactive user experience.",
     cardHighlights: [
-      "Key accomplishment or measurable impact",
-      "Notable technical detail or feature",
+      "Built a responsive single-page developer portfolio using React and Vite to showcase projects, technical skills, work experience, certifications, and contact information",
+      "Implemented interactive UI features including scroll-aware navigation, project detail modals, and responsive layouts using JavaScript and custom CSS",
     ],
     achievements: [
-      "Key accomplishment or measurable impact",
-      "Notable technical detail or feature",
+      "Built a responsive single-page developer portfolio using React and Vite to showcase projects, technical skills, work experience, certifications, and contact information",
+      "Implemented interactive UI features including scroll-aware navigation, project detail modals, and responsive layouts using JavaScript and custom CSS",
+      "Developed a modular frontend structure with reusable React components and organized content across clearly separated portfolio sections",
+      "Integrated an OGL/WebGL particle background to enhance the visual design and create a more dynamic user experience",
     ],
-    imageSrc: "",
-    imageAlt: "",
-    githubUrl: "https://github.com/sayuj0?tab=repositories",
+    imageSrc: "/images/preview.png",
+    imageAlt: "Developer Portfolio Screenshot",
+    githubUrl: "https://github.com/sayuj0/portfolio",
   },
   {
     title: "Wandering",
