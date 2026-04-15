@@ -1,6 +1,9 @@
 import Particles from "../Particles";
+import { useState } from "react";
 
 function ContactSection() {
+  const [submitState, setSubmitState] = useState("idle");
+
   const contactLinks = [
     {
       type: "email",
@@ -22,8 +25,33 @@ function ContactSection() {
     },
   ];
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
+    if (submitState === "submitting") return;
+
+    setSubmitState("submitting");
+
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch("https://formspree.io/f/xyklyoqj", {
+        method: "POST",
+        body: formData,
+        headers: {
+          Accept: "application/json",
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error("Form submission failed");
+      }
+
+      form.reset();
+      setSubmitState("success");
+    } catch (error) {
+      setSubmitState("error");
+    }
   };
 
   return (
@@ -45,7 +73,12 @@ function ContactSection() {
               Fill out the form below and I&apos;ll get back to you as soon as possible.
             </p>
 
-            <form className="contactForm" onSubmit={handleSubmit}>
+            <form
+              className="contactForm"
+              action="https://formspree.io/f/xyklyoqj"
+              method="POST"
+              onSubmit={handleSubmit}
+            >
               <label className="contactForm__label" htmlFor="contact-name">
                 Name *
               </label>
@@ -93,8 +126,12 @@ function ContactSection() {
                 required
               />
 
-              <button type="submit" className="contactForm__submit">
-                Send Message
+              <button
+                type="submit"
+                className="contactForm__submit"
+                disabled={submitState === "submitting"}
+              >
+                {submitState === "submitting" ? "Sending..." : "Send Message"}
                 <svg
                   className="contactForm__submitIcon"
                   viewBox="0 0 24 24"
@@ -118,6 +155,18 @@ function ContactSection() {
                   />
                 </svg>
               </button>
+
+              {submitState === "success" && (
+                <p className="contactStatus contactStatus--success">
+                  Thanks! Your message has been sent.
+                </p>
+              )}
+
+              {submitState === "error" && (
+                <p className="contactStatus contactStatus--error">
+                  Couldn&apos;t send your message. Please try again.
+                </p>
+              )}
             </form>
           </article>
 
