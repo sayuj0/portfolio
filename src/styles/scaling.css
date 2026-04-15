@@ -1,0 +1,23 @@
+/* Scaling and responsive overrides */
+
+@media (max-width: 780px) {
+  .simple-nav__inner {
+    flex-wrap: nowrap;
+  }
+
+  .simple-nav__links {
+    display: none;
+  }
+
+  .simple-nav__menuBtn {
+    display: inline-flex;
+    margin-left: auto;
+  }
+}
+
+@media (min-width: 781px) {
+  .mobileNavBackdrop,
+  .mobileNavPanel {
+    display: none;
+  }
+}
