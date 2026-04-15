@@ -1,5 +1,6 @@
 import SimpleNav from "./components/SimpleNav";
 import SideSocial from "./components/SideSocial";
+import Footer from "./components/Footer";
 
 import { useEffect, useMemo, useState } from "react";
 
@@ -159,6 +160,8 @@ function App() {
         <CertificationsSection />
         <ContactSection />
       </main>
+
+      <Footer onSectionClick={handleSectionClick} />
     </div>
   );
 }
