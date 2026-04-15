@@ -1,6 +1,12 @@
 import Particles from "../Particles";
 import { useState } from "react";
 
+const contactParticlesConfig = {
+  particleCount: 400,
+  particleSpread: 10,
+  cameraDistance: 25,
+};
+
 function ContactSection() {
   const [submitState, setSubmitState] = useState("idle");
 
@@ -57,7 +63,11 @@ function ContactSection() {
   return (
     <section id="contact" className="contentSection contactSection">
       <div className="contactSection__bg" aria-hidden="true">
-        <Particles particleCount={200} />
+        <Particles
+          particleCount={contactParticlesConfig.particleCount}
+          particleSpread={contactParticlesConfig.particleSpread}
+          cameraDistance={contactParticlesConfig.cameraDistance}
+        />
       </div>
 
       <div className="contentSection__inner contactSection__inner">

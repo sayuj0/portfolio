@@ -87,14 +87,14 @@ const fragment = /* glsl */ `
 `;
 
 const Particles = ({
-  particleCount = 1000,
-  particleSpread = 12,
+  particleCount = 2000,
+  particleSpread = 20,
   speed = 0.1,
   particleColors = ["#ffffff"],
   alphaParticles = true,
   particleBaseSize = 60,
   sizeRandomness = 1,
-  cameraDistance = 25,
+  cameraDistance = 30,
   disableRotation = false,
   pixelRatio = 1,
   className,
