@@ -7,17 +7,17 @@ const featuredProjects = [
     title: "Coming soon",
     description:
       "Coming soon: a new project that I'm excited to share! Check back later for updates and details on this upcoming addition to my portfolio.",
-    tags: ["Comning soon"],
-    techStack: ["Comning soon"],
+    tags: ["Coming soon"],
+    techStack: ["Coming soon"],
     about:
-      "Comning soon.",
+      "Coming soon.",
     cardHighlights: [
-      "Comning soon",
-      "Comning soon",
+      "Coming soon",
+      "Coming soon",
     ],
     achievements: [
-      "Comning soon",
-      "Comning soon",
+      "Coming soon",
+      "Coming soon",
     ],
     imageSrc: "",
     imageAlt: "",
