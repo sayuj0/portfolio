@@ -69,10 +69,6 @@
 	transform: scale(1);
 }
 
-.certCard--placeholder {
-	opacity: 0.85;
-}
-
 .certCard__body {
 	width: 100%;
 	display: grid;

@@ -510,12 +510,6 @@
 		transform: none;
 	}
 
-	.projectCard::before {
-		transition: opacity 320ms ease;
-		transform: none;
-	}
-
-
 	.projectCard__image,
 	.projectCard__mediaPlaceholder {
 		transition: none;

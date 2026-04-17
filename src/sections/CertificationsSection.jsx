@@ -83,7 +83,7 @@ function CertificationsSection() {
           {certifications.map((certification, index) => (
             <article
               key={`${certification.title}-${certification.issuer}-${certification.date}-${index}`}
-              className={`certCard${certification.placeholder ? " certCard--placeholder" : ""}`}
+              className="certCard"
               role="listitem"
             >
               <div className="certCard__body">
