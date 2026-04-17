@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { createPortal } from "react-dom";
+import { withBase } from "../utils/paths";
 
 const featuredProjects = [
   {
@@ -52,7 +53,7 @@ const featuredProjects = [
       "Implemented persistent data storage with Flask-SQLAlchemy, using SQLite for local development and PostgreSQL with Docker Compose for production-like deployment",
       "Containerized the application with Docker and validated core user workflows through Selenium-based black-box end-to-end testing",
     ],
-    imageSrc: "/images/unicareers.png",
+    imageSrc: withBase("images/unicareers.png"),
     imageAlt: "Project Two screenshot",
     githubUrl: "https://github.com/sayuj0/MajorLink",
   },
@@ -74,7 +75,7 @@ const featuredProjects = [
       "Integrated automated event markers for keypress, reward, collision, and stage lifecycle events to synchronize gameplay with EKG and GSR recordings",
       "Automated CSV logging of participant metadata, session details, and performance data for analysis",
     ],
-    imageSrc: "/images/snake.png",
+    imageSrc: withBase("images/snake.png"),
     imageAlt: "Snake persistence task screenshot",
     githubUrl: "https://github.com/sayuj0/snake_persistence_task",
   },
@@ -96,7 +97,7 @@ const featuredProjects = [
       "Developed a modular frontend structure with reusable React components and organized content across clearly separated portfolio sections",
       "Integrated an OGL/WebGL particle background to enhance the visual design and create a more dynamic user experience",
     ],
-    imageSrc: "/images/preview.png",
+    imageSrc: withBase("images/preview.png"),
     imageAlt: "Developer Portfolio Screenshot",
     githubUrl: "https://github.com/sayuj0/portfolio",
   },
@@ -118,7 +119,7 @@ const featuredProjects = [
       "Optimized the website for mobile, tablet, and desktop devices and deployed it through GitHub Pages with a custom domain",
       "Built a functional contact form and integrated smooth client-side behavior for a more polished user experience",
     ],
-    imageSrc: "/images/wandering.png",
+    imageSrc: withBase("images/wandering.png"),
     imageAlt: "Wandering screenshot",
     githubUrl: "https://github.com/sayuj0/travel-website",
     liveDemoUrl: "https://wanderingtravel.org/",
@@ -152,7 +153,7 @@ const featuredProjects = [
       "Implemented storage with SQLAlchemy and SQLite and developed a server-rendered interface with Jinja2, HTML, and CSS",
       "Containerized the application with Docker for reproducible setup and consistent deployment",
     ],
-    imageSrc: "/images/productivity.png",
+    imageSrc: withBase("images/productivity.png"),
     imageAlt: "Productivity Hub screenshot",
     githubUrl: "https://github.com/sayuj0/Productivity-Hub",
   },

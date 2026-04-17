@@ -1,9 +1,16 @@
 import { useEffect, useState } from "react";
+import { withBase } from "../utils/paths";
 
 const MOBILE_NAV_BREAKPOINT = 780;
 
 function SimpleNav({ onHomeClick, onSkillsClick, onSectionClick, activeSection }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const homeHref = withBase("");
+  const skillsHref = withBase("skills");
+  const experienceHref = withBase("experience");
+  const projectsHref = withBase("projects");
+  const certificationsHref = withBase("certifications");
+  const contactHref = withBase("contact");
 
   const isActive = (id) => activeSection === id;
   const canHandleClick = (event) =>
@@ -53,7 +60,7 @@ function SimpleNav({ onHomeClick, onSkillsClick, onSectionClick, activeSection }
   return (
     <header className={`simple-nav${isMenuOpen ? " is-menu-open" : ""}`}>
       <div className="simple-nav__inner">
-        <a className="simple-nav__brand" href="/" onClick={onHomeClick}>
+        <a className="simple-nav__brand" href={homeHref} onClick={onHomeClick}>
           Sayuj Shrestha
         </a>
 
@@ -92,7 +99,7 @@ function SimpleNav({ onHomeClick, onSkillsClick, onSectionClick, activeSection }
 
         <nav className="simple-nav__links">
           <a
-            href="/"
+            href={homeHref}
             onClick={wrapNavHandler(onHomeClick)}
             className={isActive("home") ? "is-active" : undefined}
             aria-current={isActive("home") ? "page" : undefined}
@@ -100,7 +107,7 @@ function SimpleNav({ onHomeClick, onSkillsClick, onSectionClick, activeSection }
             Home
           </a>
           <a
-            href="/skills"
+            href={skillsHref}
             onClick={wrapNavHandler(onSkillsClick)}
             className={isActive("skills") ? "is-active" : undefined}
             aria-current={isActive("skills") ? "page" : undefined}
@@ -108,7 +115,7 @@ function SimpleNav({ onHomeClick, onSkillsClick, onSectionClick, activeSection }
             Skills
           </a>
           <a
-            href="/experience"
+            href={experienceHref}
             onClick={wrapNavHandler(onSectionClick("experience"))}
             className={isActive("experience") ? "is-active" : undefined}
             aria-current={isActive("experience") ? "page" : undefined}
@@ -116,7 +123,7 @@ function SimpleNav({ onHomeClick, onSkillsClick, onSectionClick, activeSection }
             Experience
           </a>
           <a
-            href="/projects"
+            href={projectsHref}
             onClick={wrapNavHandler(onSectionClick("projects"))}
             className={isActive("projects") ? "is-active" : undefined}
             aria-current={isActive("projects") ? "page" : undefined}
@@ -124,7 +131,7 @@ function SimpleNav({ onHomeClick, onSkillsClick, onSectionClick, activeSection }
             Projects
           </a>
           <a
-            href="/certifications"
+            href={certificationsHref}
             onClick={wrapNavHandler(onSectionClick("certifications"))}
             className={isActive("certifications") ? "is-active" : undefined}
             aria-current={isActive("certifications") ? "page" : undefined}
@@ -132,7 +139,7 @@ function SimpleNav({ onHomeClick, onSkillsClick, onSectionClick, activeSection }
             Certifications
           </a>
           <a
-            href="/contact"
+            href={contactHref}
             onClick={wrapNavHandler(onSectionClick("contact"))}
             className={isActive("contact") ? "is-active" : undefined}
             aria-current={isActive("contact") ? "page" : undefined}
@@ -177,7 +184,7 @@ function SimpleNav({ onHomeClick, onSkillsClick, onSectionClick, activeSection }
 
         <nav className="mobileNavPanel__links">
           <a
-            href="/"
+            href={homeHref}
             onClick={wrapNavHandler(onHomeClick)}
             className={isActive("home") ? "is-active" : undefined}
             aria-current={isActive("home") ? "page" : undefined}
@@ -185,7 +192,7 @@ function SimpleNav({ onHomeClick, onSkillsClick, onSectionClick, activeSection }
             Home
           </a>
           <a
-            href="/skills"
+            href={skillsHref}
             onClick={wrapNavHandler(onSkillsClick)}
             className={isActive("skills") ? "is-active" : undefined}
             aria-current={isActive("skills") ? "page" : undefined}
@@ -193,7 +200,7 @@ function SimpleNav({ onHomeClick, onSkillsClick, onSectionClick, activeSection }
             Skills
           </a>
           <a
-            href="/experience"
+            href={experienceHref}
             onClick={wrapNavHandler(onSectionClick("experience"))}
             className={isActive("experience") ? "is-active" : undefined}
             aria-current={isActive("experience") ? "page" : undefined}
@@ -201,7 +208,7 @@ function SimpleNav({ onHomeClick, onSkillsClick, onSectionClick, activeSection }
             Experience
           </a>
           <a
-            href="/projects"
+            href={projectsHref}
             onClick={wrapNavHandler(onSectionClick("projects"))}
             className={isActive("projects") ? "is-active" : undefined}
             aria-current={isActive("projects") ? "page" : undefined}
@@ -209,7 +216,7 @@ function SimpleNav({ onHomeClick, onSkillsClick, onSectionClick, activeSection }
             Projects
           </a>
           <a
-            href="/certifications"
+            href={certificationsHref}
             onClick={wrapNavHandler(onSectionClick("certifications"))}
             className={isActive("certifications") ? "is-active" : undefined}
             aria-current={isActive("certifications") ? "page" : undefined}
@@ -217,7 +224,7 @@ function SimpleNav({ onHomeClick, onSkillsClick, onSectionClick, activeSection }
             Certifications
           </a>
           <a
-            href="/contact"
+            href={contactHref}
             onClick={wrapNavHandler(onSectionClick("contact"))}
             className={isActive("contact") ? "is-active" : undefined}
             aria-current={isActive("contact") ? "page" : undefined}

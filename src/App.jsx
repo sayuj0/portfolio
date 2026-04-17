@@ -10,6 +10,7 @@ import ExperienceSection from "./sections/ExperienceSection";
 import HeroSection from "./sections/HeroSection";
 import ProjectsSection from "./sections/ProjectsSection";
 import SkillsSection from "./sections/SkillsSection";
+import { normalizePathname, withBase } from "./utils/paths";
 
 import { skills } from "./data/skills";
 
@@ -61,7 +62,7 @@ function App() {
   };
 
   const syncScrollWithLocation = () => {
-    const pathname = window.location.pathname || "/";
+    const pathname = normalizePathname(window.location.pathname || "/");
     const hash = window.location.hash || "";
 
     const validSections = new Set([
@@ -76,10 +77,10 @@ function App() {
     if (hash.startsWith("#")) {
       sectionId = hash.slice(1);
       if (validSections.has(sectionId)) {
-        window.history.replaceState({}, "", `/${sectionId}`);
+        window.history.replaceState({}, "", withBase(sectionId));
       }
     } else if (pathname !== "/") {
-      sectionId = pathname.replace(/^\//, "");
+      sectionId = pathname.replace(/^\//, "").replace(/\/$/, "");
     }
 
     if (validSections.has(sectionId)) {
@@ -122,7 +123,7 @@ function App() {
   const handleHomeClick = (event) => {
     if (!shouldHandleClick(event)) return;
     event.preventDefault();
-    window.history.pushState({}, "", "/");
+    window.history.pushState({}, "", withBase(""));
     setActiveSection("home");
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
@@ -131,7 +132,7 @@ function App() {
     if (!shouldHandleClick(event)) return;
     event.preventDefault();
 
-    window.history.pushState({}, "", `/${sectionId}`);
+    window.history.pushState({}, "", withBase(sectionId));
     setActiveSection(sectionId);
     scrollToSection(sectionId);
   };

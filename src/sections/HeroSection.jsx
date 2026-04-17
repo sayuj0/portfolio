@@ -1,4 +1,5 @@
 import Particles from "../Particles";
+import { withBase } from "../utils/paths";
 
 function HeroSection({ onProjectsClick }) {
   return (
@@ -22,7 +23,7 @@ function HeroSection({ onProjectsClick }) {
           <div className="hero__cta">
             <a
               className="hero__btn hero__btn--compact"
-              href="/projects"
+              href={withBase("projects")}
               onClick={onProjectsClick}
             >
               View My Work
@@ -39,7 +40,7 @@ function HeroSection({ onProjectsClick }) {
             </a>
             <a
               className="hero__btn hero__btn--compact"
-              href="/resume/resume.pdf"
+              href={withBase("resume/resume.pdf")}
               download="Sayuj_Shrestha_Resume.pdf"
             >
               <svg className="hero__btnIcon" viewBox="0 0 24 24" aria-hidden="true">
@@ -103,7 +104,7 @@ function HeroSection({ onProjectsClick }) {
             <div className="spinner__inner">
               <img
                 className="hero__photo"
-                src="/images/profile.jpeg"
+                src={withBase("images/profile.jpeg")}
                 alt="Portrait of Sayuj Shrestha"
                 loading="lazy"
                 decoding="async"

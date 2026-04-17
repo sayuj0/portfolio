@@ -1,3 +1,5 @@
+import { withBase } from "../utils/paths";
+
 function Footer({ onSectionClick }) {
   const year = new Date().getFullYear();
 
@@ -15,10 +17,10 @@ function Footer({ onSectionClick }) {
         <section className="siteFooter__linksCol">
           <h3 className="siteFooter__label">Quick Links</h3>
           <nav className="siteFooter__links" aria-label="Footer links">
-            <a href="/skills" onClick={onSectionClick("skills")}>Skills</a>
-            <a href="/experience" onClick={onSectionClick("experience")}>Experience</a>
-            <a href="/projects" onClick={onSectionClick("projects")}>Projects</a>
-            <a href="/resume/resume.pdf" target="_blank" rel="noreferrer">
+            <a href={withBase("skills")} onClick={onSectionClick("skills")}>Skills</a>
+            <a href={withBase("experience")} onClick={onSectionClick("experience")}>Experience</a>
+            <a href={withBase("projects")} onClick={onSectionClick("projects")}>Projects</a>
+            <a href={withBase("resume/resume.pdf")} target="_blank" rel="noreferrer">
               <span>Resume</span>
               <svg className="siteFooter__externalIcon" viewBox="0 0 24 24" aria-hidden="true">
                 <path
