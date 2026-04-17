@@ -6,6 +6,11 @@ import "./Particles.css";
 const defaultColors = ["#ffffff", "#ffffff", "#ffffff"];
 const VIEWPORT_MARGIN_PX = 400;
 
+/**
+ * Converts a 3- or 6-character hex color into normalized RGB values.
+ * @param {string} hex
+ * @returns {[number, number, number]}
+ */
 const hexToRgb = (hex) => {
   hex = hex.replace(/^#/, "");
   if (hex.length === 3) {
@@ -86,6 +91,27 @@ const fragment = /* glsl */ `
   }
 `;
 
+/**
+ * @typedef {object} ParticlesProps
+ * @property {number} [particleCount]
+ * @property {number} [particleSpread]
+ * @property {number} [speed]
+ * @property {string[]} [particleColors]
+ * @property {boolean} [alphaParticles]
+ * @property {number} [particleBaseSize]
+ * @property {number} [sizeRandomness]
+ * @property {number} [cameraDistance]
+ * @property {boolean} [disableRotation]
+ * @property {number} [pixelRatio]
+ * @property {string} [className]
+ * @property {boolean} [active]
+ */
+
+/**
+ * Lightweight OGL particle field that auto-pauses when off-screen or tab-hidden.
+ * This avoids burning CPU/GPU when the effect is not visible.
+ * @param {ParticlesProps} props
+ */
 const Particles = ({
   particleCount = 2000,
   particleSpread = 20,
@@ -109,6 +135,9 @@ const Particles = ({
     if (!container) return;
 
     const margin = VIEWPORT_MARGIN_PX;
+
+    // Keep rendering active slightly before/after entering the viewport
+    // so scrolling does not cause hard start/stop flicker.
     const checkNearViewport = () => {
       const rect = container.getBoundingClientRect();
       const viewportHeight = window.innerHeight || document.documentElement.clientHeight || 0;

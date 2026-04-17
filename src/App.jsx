@@ -14,6 +14,14 @@ import { normalizePathname, withBase } from "./utils/paths";
 
 import { skills } from "./data/skills";
 
+/**
+ * @typedef {"home" | "skills" | "experience" | "projects" | "certifications" | "contact"} SectionId
+ */
+
+/**
+ * Drives section-based navigation for the single-page layout.
+ * It keeps URL paths in sync with scroll position and supports direct linking.
+ */
 function App() {
   const sectionOrder = useMemo(
     () => ["skills", "experience", "projects", "certifications", "contact"],
@@ -22,6 +30,11 @@ function App() {
 
   const [activeSection, setActiveSection] = useState("home");
 
+  /**
+   * Allow only plain left-clicks so modified clicks still open in new tabs/windows.
+   * @param {MouseEvent} event
+   * @returns {boolean}
+   */
   const shouldHandleClick = (event) =>
     event.button === 0 &&
     !event.metaKey &&
@@ -34,6 +47,10 @@ function App() {
     return nav ? nav.getBoundingClientRect().height : 0;
   };
 
+  /**
+   * Picks the section currently "owned" by the viewport and updates active nav state.
+   * The probe offset accounts for sticky nav height plus a forward buffer.
+   */
   const updateActiveSectionFromScroll = () => {
     const navHeight = getNavHeight();
     const probeY = window.scrollY + navHeight + 260;
@@ -61,6 +78,10 @@ function App() {
     window.scrollTo({ top: Math.max(0, targetTop - navHeight - 16), behavior: "smooth" });
   };
 
+  /**
+   * Resolves the current URL (hash or path), validates section ids,
+   * then scrolls to the right section while keeping the canonical path format.
+   */
   const syncScrollWithLocation = () => {
     const pathname = normalizePathname(window.location.pathname || "/");
     const hash = window.location.hash || "";
@@ -128,6 +149,11 @@ function App() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  /**
+   * Creates a click handler for section links that updates history and smooth-scrolls.
+   * @param {SectionId} sectionId
+   * @returns {(event: MouseEvent) => void}
+   */
   const handleSectionClick = (sectionId) => (event) => {
     if (!shouldHandleClick(event)) return;
     event.preventDefault();

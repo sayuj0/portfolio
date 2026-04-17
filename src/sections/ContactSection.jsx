@@ -7,6 +7,9 @@ const contactParticlesConfig = {
   cameraDistance: 25,
 };
 
+/**
+ * Contact form section with Formspree submission and inline success/error state.
+ */
 function ContactSection() {
   const [submitState, setSubmitState] = useState("idle");
 
@@ -31,6 +34,11 @@ function ContactSection() {
     },
   ];
 
+  /**
+   * Posts form data directly to Formspree and updates UI state.
+   * @param {SubmitEvent} event
+   * @returns {Promise<void>}
+   */
   const handleSubmit = async (event) => {
     event.preventDefault();
     if (submitState === "submitting") return;

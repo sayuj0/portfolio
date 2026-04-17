@@ -1,5 +1,9 @@
 import { useEffect, useRef } from "react";
 
+/**
+ * Renders timeline-based experience cards and updates the timeline fill
+ * from scroll progress across this section.
+ */
 function ExperienceSection() {
   const experiences = [
     {
@@ -49,6 +53,10 @@ function ExperienceSection() {
 
     let rafId = 0;
 
+    /**
+     * Computes a normalized progress value based on the section's position
+     * between two viewport anchor points, then writes it to a CSS variable.
+     */
     const update = () => {
       rafId = 0;
 

@@ -2,6 +2,22 @@ import { useEffect, useMemo, useState } from "react";
 import { createPortal } from "react-dom";
 import { withBase } from "../utils/paths";
 
+/**
+ * @typedef {object} FeaturedProject
+ * @property {string} title
+ * @property {string} description
+ * @property {string[]} tags
+ * @property {string[]} techStack
+ * @property {string} about
+ * @property {string[]} cardHighlights
+ * @property {string[]} achievements
+ * @property {string} imageSrc
+ * @property {string} imageAlt
+ * @property {string} githubUrl
+ * @property {string} [liveDemoUrl]
+ */
+
+/** @type {FeaturedProject[]} */
 const featuredProjects = [
   {
     title: "Coming soon",
@@ -159,6 +175,10 @@ const featuredProjects = [
   },
 ];
 
+/**
+ * Project grid with a portal-based details modal.
+ * Locks body scroll while the modal is open and offsets it below the sticky nav.
+ */
 function ProjectsSection() {
   const [activeProjectIndex, setActiveProjectIndex] = useState(null);
   const [modalSafeTop, setModalSafeTop] = useState(0);

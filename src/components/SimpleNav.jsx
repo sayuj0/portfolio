@@ -3,6 +3,10 @@ import { withBase } from "../utils/paths";
 
 const MOBILE_NAV_BREAKPOINT = 780;
 
+/**
+ * Main navigation with desktop links and a mobile slide-down panel.
+ * Handles menu state and preserves expected click behavior for modified clicks.
+ */
 function SimpleNav({ onHomeClick, onSkillsClick, onSectionClick, activeSection }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const homeHref = withBase("");
@@ -50,6 +54,11 @@ function SimpleNav({ onHomeClick, onSkillsClick, onSectionClick, activeSection }
     return () => window.removeEventListener("resize", onResize);
   }, []);
 
+  /**
+   * Wraps link handlers so the mobile menu closes only after a normal in-page click.
+   * @param {(event: MouseEvent) => void} handler
+   * @returns {(event: MouseEvent) => void}
+   */
   const wrapNavHandler = (handler) => (event) => {
     handler(event);
     if (canHandleClick(event)) {
