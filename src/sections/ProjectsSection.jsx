@@ -60,18 +60,18 @@ const featuredProjects = [
     title: "Snake Persistence Task",
     description:
       "A PsychoPy-based Snake behavioral task developed in Python to assess behavioral persistence in relation to coping self-efficacy, with synchronized event logging for physiological data collection.",
-    tags: ["Python", "PsychoPy", "Pylsl", "CSV", "+1"],
-    techStack: ["Python", "PsychoPy", "Pylsl", "CSV", "Git"],
+    tags: ["Python", "PsychoPy", "EKG", "GSR", "+3"],
+    techStack: ["Python", "PsychoPy", "EKG", "GSR", "Automation", "CSV", "Git"],
     about:
-      "This project is a Python-based Snake behavioral task built with PsychoPy for research on persistence and coping self-efficacy. Before the main gameplay starts, the researcher selects one of several counterbalanced task versions, and each version uses a different order of stages and conditions. The experiment runs full-screen and includes configurable stages, snake movement, scoring, collision handling, HUD feedback, and sprite-based visuals. The task logs participant performance to CSV and sends event markers through Pylsl so gameplay events can be synchronized with EEG, ECG, and GSR recordings.",
+      "This project is a Python-based Snake behavioral task built with PsychoPy for research on persistence and coping self-efficacy. Before the main gameplay starts, the researcher selects one of several counterbalanced task versions, and each version uses a different order of stages and conditions. The experiment runs full-screen and includes configurable stages, snake movement, scoring, collision handling, HUD feedback, and sprite-based visuals. The task logs participant performance to CSV and sends automated event markers so gameplay events can be synchronized with EKG and GSR recordings.",
     cardHighlights: [
       "Built a PsychoPy-based Snake behavioral task used across 50+ research participants to measure persistence through timed, multi-stage gameplay",
-      "Integrated pylsl markers for keypress, reward, collision, and stage lifecycle events to synchronize gameplay with EEG, ECG, and GSR recordings",
+      "Integrated automated event markers for keypress, reward, collision, and stage lifecycle events to synchronize gameplay with EKG and GSR recordings",
     ],
     achievements: [
       "Built a PsychoPy-based Snake behavioral task used across 50+ research participants to measure persistence through timed, multi-stage gameplay",
       "Implemented counterbalanced versions (A-F) and Neutral vs. Positive conditions, including encouragement prompts after collisions",
-      "Integrated pylsl markers for keypress, reward, collision, and stage lifecycle events to synchronize gameplay with EEG, ECG, and GSR recordings",
+      "Integrated automated event markers for keypress, reward, collision, and stage lifecycle events to synchronize gameplay with EKG and GSR recordings",
       "Automated CSV logging of participant metadata, session details, and performance data for analysis",
     ],
     imageSrc: "/images/snake.png",

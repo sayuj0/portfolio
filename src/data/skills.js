@@ -9,11 +9,12 @@ export const skills = {
     "CSS",
     "XML",
   ],
-  frameworksAndLibraries: ["Flask", "React", "SQLAlchemy"],
+  frameworksAndLibraries: ["Flask", "React", "SQLAlchemy", "PsychoPy"],
   tools: ["Docker", "Selenium", "Pytest", "Git", "GitHub"],
   other: [
     "REST APIs",
     "Automation",
+    "EKG",
     "Linux/Windows CLI",
     "Web Scraping",
     "Regex",

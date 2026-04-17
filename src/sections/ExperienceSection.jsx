@@ -16,14 +16,14 @@ function ExperienceSection() {
     },
     {
       role: "Research Software Developer",
-      dates: "Jan 2026 – Mar 2026",
+      dates: "Dec 2025 - Present",
       organization: "Saint Xavier University",
       location: "Remote",
       bullets: [
-        "Built a PsychoPy-based Snake behavioral task to measure persistence with timed multi-stage gameplay",
-        "Implemented counterbalanced versions (A–F) and Neutral vs. Positive conditions, including encouragement prompts after collisions",
-        "Integrated Lab Streaming Layer markers via pylsl for keypress, reward, collision, and stage lifecycle events to synchronize gameplay events with EEG, ECG, and GSR recordings",
-        "Automated CSV logging of participant/session metadata and behavioral performance metrics for analysis across 50+ research participants",
+        "Built a PsychoPy-based Snake behavioral task used across 50+ research participants to measure persistence through timed, multi-stage gameplay",
+        "Implemented counterbalanced versions (A-F) and Neutral vs. Positive conditions, including encouragement prompts after collisions",
+        "Integrated automated event markers for keypress, reward, collision, and stage lifecycle events to synchronize gameplay with EKG, and GSR recordings",
+        "Automated CSV logging of participant metadata, session details, and performance data for analysis",
       ],
     },
     {
