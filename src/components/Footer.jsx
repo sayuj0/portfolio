@@ -18,7 +18,7 @@ function Footer({ onSectionClick }) {
             <a href="/skills" onClick={onSectionClick("skills")}>Skills</a>
             <a href="/experience" onClick={onSectionClick("experience")}>Experience</a>
             <a href="/projects" onClick={onSectionClick("projects")}>Projects</a>
-            <a href="/resume" target="_blank" rel="noreferrer">
+            <a href="/resume/resume.pdf" target="_blank" rel="noreferrer">
               <span>Resume</span>
               <svg className="siteFooter__externalIcon" viewBox="0 0 24 24" aria-hidden="true">
                 <path

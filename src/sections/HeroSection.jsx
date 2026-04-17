@@ -39,9 +39,8 @@ function HeroSection({ onProjectsClick }) {
             </a>
             <a
               className="hero__btn hero__btn--compact"
-              href="/resume"
-              target="_blank"
-              rel="noreferrer"
+              href="/resume/resume.pdf"
+              download="Sayuj_Shrestha_Resume.pdf"
             >
               <svg className="hero__btnIcon" viewBox="0 0 24 24" aria-hidden="true">
                 <path

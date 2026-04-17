@@ -60,16 +60,15 @@ function CertificationsSection() {
         "https://www.linkedin.com/learning/certificates/d1cb2bb3bb27978271cd616fc917786fdf0be1c2ff86f497e6cdd7ff81076424?trk=share_certificate",
     },
     {
-      title: "Placeholder Certification",
-      issuer: "placerholder",
+      title: "Programming with Python Professional",
+      issuer: "OpenEDG",
       date: "Apr 2026",
       logoImageSrc: "/images/python.png",
       logoImageAlt: "Python",
       contentAlign: "center",
-      certificateImageSrc: "",
-      certificateImageAlt: "",
-      certificateUrl:
-        "",
+      certificateImageSrc: "/images/pythoncert.jpg",
+      certificateImageAlt: "OpenEDG - Programming with Python Professional certificate",
+      certificateUrl: "https://www.linkedin.com/learning/certificates/ac1f84ac8847d79181363f622c8151fbaca534a2dacc85645665a6f7668e59b6?trk=share_certificate",
     },
   ];
 
