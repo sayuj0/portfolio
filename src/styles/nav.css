@@ -203,6 +203,7 @@
 }
 
 .simple-nav.is-menu-open .mobileNavBackdrop {
+  /* Backdrop/panel are controlled via parent state class toggled in React. */
   opacity: 1;
   pointer-events: auto;
 }

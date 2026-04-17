@@ -1,5 +1,3 @@
-/* Experience section styles */
-
 #experience .contentSection__inner {
   padding: 80px var(--page-pad) 160px;
   max-width: var(--page-max);
@@ -179,6 +177,7 @@
   height: 100%;
   border-radius: inherit;
   background: rgba(var(--glow-light-rgb), 0.92);
+  /* --experience-progress is written by ExperienceSection scroll logic (0..1). */
   transform-origin: top;
   transform: scaleY(var(--experience-progress, 0));
   transition: transform 120ms ease;
