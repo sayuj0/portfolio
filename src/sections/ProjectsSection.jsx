@@ -4,20 +4,20 @@ import { withBase } from "../utils/paths";
 
 const featuredProjects = [
   {
-    title: "Project One",
+    title: "Coming soon",
     description:
-      "A short, high-impact summary of what this project does and why it matters.",
-    tags: ["React", "Vite", "CSS"],
-    techStack: ["React", "Vite", "CSS"],
+      "Coming soon: a new project that I'm excited to share! Check back later for updates and details on this upcoming addition to my portfolio.",
+    tags: ["Comning soon"],
+    techStack: ["Comning soon"],
     about:
-      "A short paragraph describing the problem, your approach, and what you built.",
+      "Comning soon.",
     cardHighlights: [
-      "Key accomplishment or measurable impact",
-      "Notable technical detail or feature",
+      "Comning soon",
+      "Comning soon",
     ],
     achievements: [
-      "Key accomplishment or measurable impact",
-      "Notable technical detail or feature",
+      "Comning soon",
+      "Comning soon",
     ],
     imageSrc: "",
     imageAlt: "",

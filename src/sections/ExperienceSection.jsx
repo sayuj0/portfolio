@@ -3,7 +3,7 @@ import { useEffect, useRef } from "react";
 function ExperienceSection() {
   const experiences = [
     {
-      role: "Software Engineering Intern",
+      role: "Software Engineering Intern (Placerholder for the future role)",
       dates: "Jun 2026 – Present",
       organization: "Lockheed Martin Space",
       location: "Highlands Ranch, CO",
