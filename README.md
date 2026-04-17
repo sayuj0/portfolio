@@ -2,6 +2,10 @@
 
 A responsive, single-page developer portfolio built with React and Vite.
 
+![Portfolio Preview](./public/images/preview.png)
+
+Live Website: https://sayuj.dev/
+
 ## Overview
 
 This project showcases:
@@ -27,17 +31,53 @@ It also includes:
 ## Project Structure
 
 ```text
-src/
-  components/      # Navbar, footer, shared UI pieces
-  data/            # Skills and content data
-  sections/        # Hero, Skills, Experience, Projects, Certifications, Contact
-  styles/          # Global and section-specific styles
-  utils/           # Path/base helpers
-  App.jsx
-  main.jsx
-public/
-  images/
-  resume/
+.
+|-- .github/
+|   `-- workflows/
+|       `-- deploy.yml                  # GitHub Pages deployment workflow
+|-- public/
+|   |-- images/                         # Project images, logos, and certificate assets
+|   `-- resume/
+|       `-- resume.pdf                  # Resume file used by Hero/Footer resume links
+|-- src/
+|   |-- components/
+|   |   |-- Footer.jsx                  # Footer links and social/contact icons
+|   |   |-- SideSocial.jsx              # Side social rail
+|   |   `-- SimpleNav.jsx               # Desktop/mobile navigation
+|   |-- data/
+|   |   `-- skills.js                   # Skills data source
+|   |-- sections/
+|   |   |-- HeroSection.jsx             # Landing hero section
+|   |   |-- SkillsSection.jsx           # Skills section UI
+|   |   |-- ExperienceSection.jsx       # Experience timeline/cards
+|   |   |-- ProjectsSection.jsx         # Featured projects grid + modal
+|   |   |-- CertificationsSection.jsx   # Certification cards
+|   |   `-- ContactSection.jsx          # Contact form + links
+|   |-- styles/
+|   |   |-- base.css
+|   |   |-- nav.css
+|   |   |-- hero-shell.css
+|   |   |-- hero-details.css
+|   |   |-- footer.css
+|   |   |-- scaling.css
+|   |   |-- sections.css
+|   |   `-- sections/
+|   |       |-- shared.css
+|   |       |-- skills.css
+|   |       |-- experience.css
+|   |       |-- projects.css
+|   |       |-- certifications.css
+|   |       `-- contact.css
+|   |-- utils/
+|   |   `-- paths.js                    # Path/base URL helpers for deployment environments
+|   |-- App.jsx                         # Main page composition and section routing logic
+|   |-- main.jsx                        # React app entry point
+|   |-- Particles.jsx                   # OGL particle animation component
+|   |-- Particles.css                   # Particle container styles
+|   `-- styles.css                      # Global style imports
+|-- index.html                          # Vite HTML entry
+|-- package.json                        # Scripts and dependencies
+`-- vite.config.js                      # Vite configuration
 ```
 
 ## Getting Started
@@ -103,4 +143,4 @@ If you use a custom domain (example: `www.sayuj.dev`):
 
 Personal portfolio project.
 
-
+&copy; 2026 Sayuj Shrestha. All Rights Reserved.
