@@ -1,4 +1,4 @@
-# Sayuj Shrestha Portfolio
+# My Portfolio
 
 A responsive, single-page developer portfolio built with React and Vite.
 
