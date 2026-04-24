@@ -41,11 +41,21 @@ function HeroSection({ onProjectsClick }) {
             <a
               className="hero__btn hero__btn--compact"
               href={withBase("resume/resume.pdf")}
-              download="Sayuj_Shrestha_Resume.pdf"
+              target="_blank"
+              rel="noreferrer"
             >
+              Resume
               <svg className="hero__btnIcon" viewBox="0 0 24 24" aria-hidden="true">
                 <path
-                  d="M12 3v10m0 0 4-4m-4 4-4-4M5 21h14"
+                  d="M15 3h6v6m0-6L10 14"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M19 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5"
                   fill="none"
                   stroke="currentColor"
                   strokeWidth="2"
@@ -53,7 +63,6 @@ function HeroSection({ onProjectsClick }) {
                   strokeLinejoin="round"
                 />
               </svg>
-              Resume
             </a>
           </div>
 
