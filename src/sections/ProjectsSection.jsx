@@ -20,24 +20,37 @@ import { withBase } from "../utils/paths";
 /** @type {FeaturedProject[]} */
 const featuredProjects = [
   {
-    title: "Coming soon",
+    title: "Pathfinder AI",
     description:
-      "Coming soon: a new project that I'm excited to share! Check back later for updates and details on this upcoming addition to my portfolio.",
-    tags: ["Coming soon"],
-    techStack: ["Coming soon"],
+      "A full-stack career discovery app using React/Vite and Node.js that adaptively personalizes RIASEC quiz flow and ranks best-fit careers based on user responses.",
+    tags: ["JavaScript", "React", "Node.js", "Gemini API", "+6"],
+    techStack: [
+      "JavaScript",
+      "React",
+      "Node.js",
+      "Gemini API",
+      "Vite",
+      "HTML",
+      "CSS",
+      "Docker",
+      "Pytest",
+      "Selenium",
+    ],
     about:
-      "Coming soon.",
+      "This project is a full-stack career discovery application built to make career exploration more personalized and interactive. It uses an adaptive RIASEC-based quiz to adjust question flow based on user responses and rank best-fit career matches in a more tailored way than a static questionnaire. The frontend was built with React and Vite to deliver the quiz experience, checkpoints, and results in a smooth single-page interface, while the Node.js backend supports AI-guided career exploration tied to each user’s quiz context. The application also includes a secure Gemini-powered chat workflow with server-side API key handling, input validation, rate limiting, and error handling to improve reliability and protect credentials. To support quality and consistency, the project includes testing for core ranking logic and randomized UI behavior, along with containerized deployment for easier setup and reproducible runs.",
     cardHighlights: [
-      "Coming soon",
-      "Coming soon",
+      "Built a full-stack career discovery app using React/Vite and Node.js that adaptively personalizes RIASEC quiz flow and ranks best-fit careers based on user responses",
+      "Integrated a secure Gemini-powered chat backend with server-side API key management, input validation, rate limiting, and robust error handling",
     ],
     achievements: [
-      "Coming soon",
-      "Coming soon",
+      "Built a full-stack career discovery app using React/Vite and Node.js that adaptively personalizes RIASEC quiz flow and ranks best-fit careers based on user responses",
+      "Integrated a secure Gemini-powered chat backend with server-side API key management, input validation, rate limiting, and robust error handling",
+      "Developed adaptive quiz and ranking logic to generate more personalized career matches instead of static questionnaire results",
+      "Validated application behavior with unit tests for ranking logic and Selenium randomized UI tests that checked checkpoint outputs against expected results",
     ],
-    imageSrc: "",
-    imageAlt: "",
-    githubUrl: "https://github.com/sayuj0?tab=repositories",
+    imageSrc: withBase("images/pathfinder.png"),
+    imageAlt: "Pathfinder AI Screenshot",
+    githubUrl: "https://github.com/sayuj0/pathfinder-AI",
   },
   {
     title: "MajorLink",
@@ -70,7 +83,7 @@ const featuredProjects = [
       "Containerized the application with Docker and validated core user workflows through Selenium-based black-box end-to-end testing",
     ],
     imageSrc: withBase("images/unicareers.png"),
-    imageAlt: "Project Two screenshot",
+    imageAlt: "MajorLink screenshot",
     githubUrl: "https://github.com/sayuj0/MajorLink",
   },
   {
